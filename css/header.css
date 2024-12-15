@@ -1,0 +1,44 @@
+.header-main-content {
+    margin-left: 250px;
+    padding: 10px;
+}
+
+.content-header {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.content-header h1 {
+    color: #8B0000; /* Đỏ đậm */
+    font-size: 24px;
+    border-left: 4px solid #8B0000;
+    padding-left: 10px;
+}
+.header-profile {
+    display: flex; 
+    gap: 20px;
+    align-items: center;
+}
+
+.header-profile img { 
+    height: 40px; 
+    cursor: pointer; 
+    border: 2px solid #8B0000; /* Thêm viền đỏ đậm */
+    border-radius: 50%; /* Bo tròn viền */
+}
+
+.header-username {
+    color: #8B0000; /* Đỏ đậm */
+    font-weight: 600;
+}
+
+.header-role {
+    color: #B22222; /* Đỏ đậm */
+    font-weight: 400;
+}

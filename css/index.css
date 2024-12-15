@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('../assets/index/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 800px;
+    margin: 80px auto;
+    text-align: center;
+    flex: 1;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 60px 60px 50px;
+    border-radius: 10px; 
+    background-color: #fff;
+}
+
+.card-header {
+    padding-bottom: 50px
+}
+
+.card-header img {
+    width: auto;
+    height: 150px;
+}
+
+.role-selection {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.role {
+    padding: 15px 30px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.role img {
+    width: auto;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.role p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    font-size: 16px;
+    background-color: black;
+    color: white; 
+    padding: 20px 20px 20px 100px;
+}
