@@ -1,44 +1,49 @@
-.header-main-content {
-    margin-left: 250px;
-    padding: 10px;
+.header__header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 250px;
+    z-index: 1000;
+    background-color: #FFF5F5;
 }
 
-.content-header {
-    margin-bottom: 20px;
+.header__content-header {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex; 
     justify-content: space-between; 
     align-items: center;
 }
 
-.content-header h1 {
+.header__content-header h1 {
     color: #8B0000; /* Đỏ đậm */
-    font-size: 24px;
+    font-size: 20px;
     border-left: 4px solid #8B0000;
     padding-left: 10px;
 }
-.header-profile {
+.header__header-profile {
     display: flex; 
     gap: 20px;
     align-items: center;
 }
 
-.header-profile img { 
+.header__header-profile img { 
     height: 40px; 
     cursor: pointer; 
     border: 2px solid #8B0000; /* Thêm viền đỏ đậm */
     border-radius: 50%; /* Bo tròn viền */
 }
 
-.header-username {
+.header__header-user-info {
+    min-width: 150px;
+}
+.header__header-username {
     color: #8B0000; /* Đỏ đậm */
     font-weight: 600;
 }
 
-.header-role {
+.header__header-role {
     color: #B22222; /* Đỏ đậm */
     font-weight: 400;
 }

@@ -1,0 +1,45 @@
+
+.form-actions {
+    margin: 20px 0 0 50px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.left-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: none;
+}
+
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #dc3545;
+}

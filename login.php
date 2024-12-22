@@ -34,7 +34,7 @@
             // const selectedRole = localStorage.getItem('selectedRole'); // Retrieve selectedRole here
 
             // Immediate redirect
-            window.location.href = 'dashboard.php';
+            window.location.href = 'dashboard';
         }
     </script>
 </body>

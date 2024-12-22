@@ -1,5 +1,5 @@
 /* css/sidebar.css */
-.sidebar {
+.sidebar__sidebar {
     width: 250px;
     height: 100vh;
     background-color: #8B0000; /* Đỏ đậm */
@@ -10,52 +10,52 @@
     padding: 20px 0;
 }
 
-.logo {
+.sidebar__logo {
     text-align: center;
     padding: 20px;
     border-bottom: 1px solid #A52A2A; /* Nâu đỏ nhạt */
 }
 
-.logo h2 {
+.sidebar__logo h2 {
     margin: 0;
     font-size: 20px;
 }
 
-.nav-menu ul {
+.sidebar__nav-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-menu li {
+.sidebar__nav-menu li {
     padding: 15px 25px;
     transition: all 0.3s;
 }
 
-.nav-menu li:hover, .nav-menu li.active {
+.sidebar__nav-menu li:hover, .sidebar__nav-menu li.active {
     background-color: #B22222; /* Đỏ lửa */
     cursor: pointer;
 }
 
-.nav-menu a {
+.sidebar__nav-menu a {
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
 }
 
-.nav-menu i {
+.sidebar__nav-menu i {
     margin-right: 10px;
     width: 20px;
 }
 
 /* Thêm hiệu ứng hover cho menu items */
-.nav-menu li:hover {
+.sidebar__nav-menu li:hover {
     border-left: 4px solid #FFB6C1; /* Hồng nhạt */
 }
 
 /* Style cho active menu item */
-.nav-menu li.active {
+.sidebar__nav-menu li.active {
     background-color: #B22222;
     border-left: 4px solid #FFF;
 }

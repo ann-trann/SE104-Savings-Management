@@ -12,7 +12,8 @@ body {
 
 .main-content {
     margin-left: 250px;
-    padding: 20px;
+    padding: 10px 20px;
+    margin-top: 60px;
 }
 
 
@@ -30,6 +31,7 @@ body {
 .btn-primary {
     background-color: #8B0000;
     color: white;
+    margin-bottom: 10px
 }
 
 .btn-primary:hover {
@@ -73,7 +75,7 @@ tr:hover {
 }
 
 .form-control {
-    width: 100%;
+    width: 400px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -90,9 +92,14 @@ tr:hover {
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 20px;
+    height: 550px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-top: 3px solid #8B0000;
+}
+
+.card-header {
+    color: #8B0000; 
+    margin: 0 0 20px 20px;
 }
 
 
@@ -110,6 +117,7 @@ tr:hover {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-left: 4px solid #8B0000;
+    border-top: 4px solid #8B0000;
 }
 
 .stat-card h3 {
@@ -121,4 +129,48 @@ tr:hover {
     font-size: 24px;
     font-weight: bold;
     color: #333;
+}
+
+
+
+/* Style cho savings */
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.search {
+    width: 400px;
+    position: relative;
+}
+
+.search .form-group input {
+    padding-left: 30px;
+    width: 100%;
+}
+
+.search .form-group i {
+    position: absolute;
+    left: 10px;
+    top: 33%;
+    transform: translateY(-50%);
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.filter-date .date-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-date .date-input label {
+    width: 80px;
 }

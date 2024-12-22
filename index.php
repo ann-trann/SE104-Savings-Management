@@ -43,7 +43,7 @@
         
         // // Store only the selected role
         // localStorage.setItem('selectedRole', role);
-        window.location.href = 'login.php';
+        window.location.href = 'login';
     }
     </script>
 </body>
