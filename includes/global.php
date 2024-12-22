@@ -1,6 +1,6 @@
 <?php
 // Đảm bảo functions.php được include
-require_once "functions/functions.php";
+require_once __DIR__ . "/functions/functions.php";
 
 // Kiểm tra WW_ROOT đã được định nghĩa chưa
 if (!defined('WW_ROOT')) {

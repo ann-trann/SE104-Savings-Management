@@ -14,7 +14,7 @@
                 <div class="login-role" id="loginRoleDisplay">Đăng nhập với vai trò: Quản lý</div>
             </div>
             <div class="login-form">
-                <input type="text" id="username" placeholder="Tên đăng nhập">
+                <input type="text" id="phone-number" placeholder="Số điện thoại">
                 <input type="password" id="password" placeholder="Mật khẩu">
             </div>
             <button class="login-btn" onclick="login(event)">Đăng nhập</button>

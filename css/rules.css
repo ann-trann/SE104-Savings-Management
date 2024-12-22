@@ -1,0 +1,113 @@
+#rules-card {
+    height: auto; /* Remove fixed height */
+    min-height: 550px; /* Set a minimum height to match other cards */
+    padding: 20px;
+    margin-bottom: 30px; /* Add margin to separate from any content below */
+}
+
+.rules-form {
+    padding: 20px;
+    height: 100%; /* Take full height of parent */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add consistent spacing between sections */
+}
+
+/* Optional: Add some spacing for better visual separation */
+.rules-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+/* Ensure the last section doesn't have extra margin */
+.rules-section:last-child {
+    margin-bottom: 0;
+}
+
+
+.rules-section h3 {
+    color: #8B0000;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-text {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.savings-types {
+    margin-bottom: 20px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.delete-type {
+    color: #dc3545;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-type:hover {
+    color: #c82333;
+}
+
+
+.savings-type {
+    display: grid;
+    grid-template-columns: 250px 150px 150px 50px; /* Updated to include new column */
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Add these new styles for the form controls within savings-type */
+.savings-type .form-control {
+    width: 100%; /* Take full width of parent container */
+    min-width: 0; /* Allows the input to shrink below default min-width */
+}
+
+/* Optional: If you want to make the input text slightly smaller */
+.savings-type input {
+    font-size: 14px;
+}

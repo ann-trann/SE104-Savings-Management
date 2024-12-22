@@ -3,16 +3,16 @@
 $page = 'create-account';
 $page_title = 'Tạo Tài Khoản Mới';
 
-require "includes/global.php";
-?>
+require "../includes/global.php";
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
+include '../includes/header.php';
+include '../includes/sidebar.php';
+?>
 
 <div class="main-content">
     <div class="content-header">
         <div class="header-actions">
-            <button class="btn btn-secondary" onclick="window.location.href='accounts'">
+            <button class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/accounts'">
                 <i class="fas fa-arrow-left"></i> Quay lại
             </button>
         </div>
@@ -39,7 +39,7 @@ require "includes/global.php";
                     </div>
                     <div class="form-group">
                         <label for="soDu">Số dư ban đầu</label>
-                        <input type="number" id="soDu" name="soDu" class="form-control" required min="0">
+                        <input type="money" id="soDu" name="soDu" class="form-control" required min="0">
                     </div>
                 </div>
                 
@@ -66,7 +66,7 @@ require "includes/global.php";
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-save"></i> Tạo tài khoản
                 </button>
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='accounts.php'">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/accounts'">
                     Hủy
                 </button>
             </div>

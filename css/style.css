@@ -42,6 +42,15 @@ body {
 
 
 /* Style cho bảng */
+
+.table-wrapper {
+    max-height: 450px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;

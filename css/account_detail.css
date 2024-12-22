@@ -1,0 +1,226 @@
+#accounts-card {
+    height: 650px;
+}
+
+#accounts-card .table-wrapper{
+    max-height: 550px;
+}
+
+
+/* Account overview styles */
+.account-overview {
+    margin-bottom: 30px;
+}
+
+.account-info-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.account-title h2 {
+    margin: 0;
+    color: #8B0000;
+}
+
+.account-number {
+    display: block;
+    color: #666;
+    margin-top: 5px;
+}
+
+.account-balance {
+    text-align: right;
+}
+
+.account-balance label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.balance-amount {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8B0000;
+}
+
+.account-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item label {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.detail-item span {
+    font-weight: 500;
+    color: #333;
+}
+
+
+/* Savings card styles */
+.savings-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.savings-filter label{
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+
+}
+
+.savings-filter .form-group {
+    max-width: 500px;
+    margin-bottom: 0;
+}
+
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.status-badge.active {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status-badge.completed {
+    background-color: #E0E0E0;
+    color: #424242;
+}
+
+.savings-list {
+    padding: 20px;
+}
+
+.savings-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.savings-list th,
+.savings-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.savings-list th {
+    font-weight: 600;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #1976D2;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.btn-icon:hover {
+    background-color: #E3F2FD;
+}
+
+
+/* Transaction card styles */
+.transaction-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header-container {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.transaction-filter {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+
+.transaction-filter .form-group {
+    flex: 1;
+}
+
+.transaction-filter .form-control {
+    width: 80%;
+}
+
+.transaction-filter label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.transaction-list {
+    padding: 20px;
+}
+
+.transaction-type {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.transaction-type.deposit {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+.transaction-type.withdraw {
+    background-color: #FFEBEE;
+    color: #C62828;
+}
+
+.transaction-type.interest {
+    background-color: #E3F2FD;
+    color: #1565C0;
+}
+
+.amount {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.amount.positive {
+    color: #2E7D32;
+}
+
+.amount.negative {
+    color: #C62828;
+}
+
+.balance {
+    font-family: monospace;
+    color: #333;
+}

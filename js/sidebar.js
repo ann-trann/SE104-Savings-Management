@@ -11,3 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var moneyElements = document.querySelectorAll('.money');
+    moneyElements.forEach(function(element) {
+        var value = element.textContent;
+        var formattedValue = new Intl.NumberFormat('vi-VN').format(value.replace(/[^\d]/g, ''));
+        element.textContent = value.replace(/\d+/, formattedValue);
+    });
+});

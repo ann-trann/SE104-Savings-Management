@@ -1,0 +1,281 @@
+/* Styles for saving detail page */
+
+.saving-detail__card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-top: 3px solid #8B0000;
+}
+
+.detail-content {
+    padding: 20px;
+}
+
+.detail-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.detail-group {
+    display: flex;
+    align-items: baseline;
+}
+
+.detail-group label {
+    width: 150px;
+    color: #666;
+    font-weight: bold;
+}
+
+.detail-group span {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.detail-group .money {
+    color: #8B0000;
+    font-weight: bold;
+}
+
+.detail-group .interest-rate {
+    color: #006400;
+    font-weight: bold;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.status.active {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status.completed {
+    background-color: #E0E0E0;
+    color: #424242;
+}
+
+
+.transaction-section {
+    margin-top: 30px;
+}
+
+.transaction-section h3 {
+    color: #8B0000;
+    margin-bottom: 20px;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.transaction-table th {
+    background-color: #8B0000;
+    color: white;
+}
+
+.transaction-table tr:hover {
+    background-color: #FFF0F0;
+}
+
+.transaction-table .money {
+    text-align: right;
+    font-family: monospace;
+}
+
+
+
+
+
+/* Styles cho header và buttons */
+.saving-detail__card-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-warning {
+    background-color: #FFA000;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #FF8F00;
+}
+
+.btn-danger {
+    background-color: #D32F2F;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #C62828;
+}
+
+/* Styles cho modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    color: #8B0000;
+    margin: 0;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#withdrawForm .form-control {
+    width: 450px;
+}
+
+
+/* Styles cho thông tin tất toán */
+.settlement-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-row.total {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.info-row label {
+    color: #666;
+}
+
+.info-row .money {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.info-row .interest {
+    color: #2E7D32;
+}
+
+#settlementForm textarea.form-control {
+    min-height: 100px;
+    width: 450px;
+    resize: none;
+}
+
+
+
+/*------------------------------------*/
+
+/* Additional styles for new form fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-weight: 500;
+}
+
+input[type="text"][readonly] {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #666;
+}
+
+input[type="date"].form-control {
+    width: 450px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Adjust spacing for settlement modal */
+#settlementModal .form-group {
+    margin-bottom: 20px;
+}
+
+#settlementModal .settlement-info {
+    margin-top: 20px;
+}
+
+/* Style for readonly inputs */
+.form-control[readonly] {
+    cursor: not-allowed;
+}

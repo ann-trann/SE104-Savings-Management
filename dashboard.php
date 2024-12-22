@@ -61,7 +61,7 @@ require "includes/global.php";
 </div>
 
 <script src="js/sidebar.js"></script>
-<script src="js/main.js"></script>
+
 <script>
     function logout() {
         // Redirect to login page
