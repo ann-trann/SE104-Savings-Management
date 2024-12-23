@@ -39,7 +39,7 @@ include '../includes/sidebar.php';
                     </div>
                     <div class="form-group">
                         <label for="soDu">Số dư ban đầu</label>
-                        <input type="money" id="soDu" name="soDu" class="form-control" required min="0">
+                        <input type="number" id="soDu" name="soDu" class="form-control" required min="0">
                     </div>
                 </div>
                 

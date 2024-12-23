@@ -79,6 +79,12 @@
 
 
 /* Savings card styles */
+
+#savingsList, #transactionsList {
+    max-height: 320px;
+}
+
+
 .savings-card {
     background: white;
     border-radius: 8px;

@@ -9,11 +9,18 @@ require "includes/global.php";
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/sidebar.php'; ?>
 
-
 <div class="main-content">
-    <!-- <div class="content-header">
-            <h1>Tổng quan</h1>
-        </div> -->
+
+    <div class="current-date">
+        <?php
+        // Thiết lập ngôn ngữ locale thành tiếng Việt
+        setlocale(LC_TIME, 'vi_VN.UTF-8');
+
+        // Hiển thị ngày tháng bằng tiếng Việt
+        echo '<h3>Hôm nay là: ' . strftime('%A, %d %B %Y', strtotime('now')) . '</h3>';
+        ?>
+    </div>
+
 
     <div class="dashboard-stats">
         <div class="stat-card">
@@ -22,41 +29,51 @@ require "includes/global.php";
         </div>
         <div class="stat-card">
             <h3>Tổng tiền gửi</h3>
-            <div class="value">2,345,678,000 đ</div>
+            <div class="value"><span class="money">2345678000 đ</span></div>
         </div>
         <div class="stat-card">
             <h3>Số tài khoản</h3>
             <div class="value">567</div>
         </div>
         <div class="stat-card">
-            <h3>Doanh thu tháng</h3>
-            <div class="value">123,456,000 đ</div>
+            <h3>Số phiếu đang hoạt động</h3>
+            <div class="value">395</div>
         </div>
     </div>
 
+
     <div class="card">
         <h2 class="card-header">Phiếu tiết kiệm gần đây</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Mã phiếu</th>
-                    <th>Khách hàng</th>
-                    <th>Số tiền</th>
-                    <th>Ngày gửi</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>#PTK001</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>100,000,000 đ</td>
-                    <td>15/12/2024</td>
-                    <td>Đang hoạt động</td>
-                </tr>
-                <!-- Thêm các dòng khác -->
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã phiếu</th>
+                        <th>Khách hàng</th>
+                        <th>Số tiền</th>
+                        <th>Ngày gửi</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#PTK001</td>
+                        <td>Nguyễn Văn A</td>
+                        <td><span class="money">100000000 đ</span></td>
+                        <td>15/12/2024</td>
+                        <td><span class="status active">Đang hoạt động</span></td>
+                    </tr>
+                    <tr>
+                        <td>#PTK001</td>
+                        <td>Nguyễn Văn A</td>
+                        <td><span class="money">100000000 đ</span></td>
+                        <td>15/12/2024</td>
+                        <td><span class="status active">Đang hoạt động</span></td>
+                    </tr>
+                    <!-- Thêm các dòng khác -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

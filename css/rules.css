@@ -111,3 +111,35 @@
 .savings-type input {
     font-size: 14px;
 }
+
+
+/*-----------------------------------*/
+/* Check box */
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-option label {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover effect for better interactivity */
+.checkbox-option:hover {
+    color: #8B0000;
+}

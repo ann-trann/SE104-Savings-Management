@@ -70,7 +70,7 @@ require "../includes/global.php";
                     <tr>
                         <td>#PTK001</td>
                         <td>Nguyễn Văn A</td>
-                        <td>100,000,000 đ</td>
+                        <td><span class="money">100000000 đ</span></td>
                         <td>6 tháng</td>
                         <td>5.0%</td>
                         <td>15/12/2024</td>
@@ -83,7 +83,7 @@ require "../includes/global.php";
                     <tr>
                         <td>#PTK001</td>
                         <td>Trần Văn B</td>
-                        <td>100,000,000 đ</td>
+                        <td><span class="money">100000000 đ</span></td>
                         <td>3 tháng</td>
                         <td>5.5%</td>
                         <td>15/12/2024</td>

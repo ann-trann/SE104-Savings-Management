@@ -52,7 +52,7 @@ require "../includes/global.php";
                         <td>nguyenvana@email.com</td>
                         <td>Hà Nội</td>
                         <td>3</td>
-                        <td>300,000,000 đ</td>
+                        <td><span class="money">300000000 đ</span></td>
                         <td>
                             <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'account-detail';"><i class="fas fa-eye"></i></button>
                         </td>
@@ -65,7 +65,7 @@ require "../includes/global.php";
                         <td>tranvanb@email.com</td>
                         <td>Hồ Chí Minh</td>
                         <td>2</td>
-                        <td>250,000,000 đ</td>
+                        <td><span class="money">250000000 đ</span></td>
                         <td>
                             <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'account-detail';"><i class="fas fa-eye"></i></button>
                         </td>

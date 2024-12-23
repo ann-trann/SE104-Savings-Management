@@ -72,14 +72,18 @@ require "./includes/global.php";
             <div class="rules-section">
                 <h3>Hình thức gia hạn</h3>
                 <div class="form-group">
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="autoRenew" name="renewalType" value="auto" checked>
-                            <label for="autoRenew">Tự động gia hạn</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="renewPrincipal" name="renewalTypes" value="principal">
+                            <label for="renewPrincipal">Tự động gia hạn gốc</label>
                         </div>
-                        <div class="radio-option">
-                            <input type="radio" id="manualRenew" name="renewalType" value="manual">
-                            <label for="manualRenew">Gia hạn thủ công</label>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="renewPrincipalAndInterest" name="renewalTypes" value="principalAndInterest">
+                            <label for="renewPrincipalAndInterest">Tự động gia hạn gốc và lãi</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="closeOnMaturity" name="renewalTypes" value="close">
+                            <label for="closeOnMaturity">Tất toán khi đến hạn</label>
                         </div>
                     </div>
                 </div>
@@ -95,5 +99,4 @@ require "./includes/global.php";
 
 
 <!-- Add at the bottom of rules.php -->
-<script src="./js/sidebar.js"></script>
 <script src="./js/rules.js"></script>
