@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <img src="assets/index/logo.png" alt="Logo">
-                <div class="login-role" id="loginRoleDisplay">Đăng nhập với vai trò: Quản lý</div>
+                <div class="login-role" id="loginRoleDisplay">Đăng nhập với vai trò: </div>
             </div>
             <div class="login-form">
                 <input type="text" id="phone-number" placeholder="Số điện thoại">
@@ -25,17 +25,6 @@
         SAVING MANAGEMENT PLATFORM
     </footer>
 
-    <script>
-
-        function login(event) {
-            event.preventDefault(); // Prevent the form from submitting
-
-            // const username = document.getElementById('username').value.trim();
-            // const selectedRole = localStorage.getItem('selectedRole'); // Retrieve selectedRole here
-
-            // Immediate redirect
-            window.location.href = 'dashboard';
-        }
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>

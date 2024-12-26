@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Role</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -38,13 +40,11 @@
 
     <script>
         function selectRole(role) {
-        // Clear any previous login states
-        // localStorage.clear();
-        
-        // // Store only the selected role
-        // localStorage.setItem('selectedRole', role);
-        window.location.href = 'login';
-    }
+            localStorage.clear();
+            localStorage.setItem('selectedRole', role);
+            window.location.href = 'login';
+        }
     </script>
 </body>
+
 </html>

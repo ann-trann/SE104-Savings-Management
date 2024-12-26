@@ -3,11 +3,11 @@ $page = 'dashboard';
 $page_title = 'Trang chủ';
 
 require "includes/global.php";
+include 'includes/header.php';
+require_once "includes/auth.php";
+$userRole = checkAuth();
+
 ?>
-
-
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
 
 <div class="main-content">
 
