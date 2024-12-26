@@ -37,6 +37,7 @@ function displayRole() {
 // Call displayRole when page loads
 document.addEventListener('DOMContentLoaded', displayRole);
 
+// js/login.js
 function login(event) {
     event.preventDefault();
     
@@ -50,12 +51,9 @@ function login(event) {
         return;
     }
     
-    // In a real application, you would validate credentials against a backend
-    // For now, we'll simulate a successful login
-    
-    // Store login information
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('userRole', selectedRole);
+    // Store login information in cookies
+    document.cookie = `isLoggedIn=true; path=/`;
+    document.cookie = `userRole=${selectedRole}; path=/`;
     
     // Redirect based on role
     switch (selectedRole) {
@@ -63,6 +61,8 @@ function login(event) {
             window.location.href = 'user_account';
             break;
         case 'employee':
+            window.location.href = 'dashboard';
+            break;
         case 'manager':
             window.location.href = 'dashboard';
             break;

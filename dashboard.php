@@ -3,10 +3,13 @@ $page = 'dashboard';
 $page_title = 'Trang chủ';
 
 require "includes/global.php";
-include 'includes/header.php';
 require_once "includes/auth.php";
 $userRole = checkAuth();
 
+include 'includes/header.php';
+
+// Load sidebar dựa theo role
+loadSidebar();
 ?>
 
 <div class="main-content">

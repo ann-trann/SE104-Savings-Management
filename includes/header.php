@@ -6,8 +6,8 @@
         <div class="header__header-profile">
             <img src="/SE104-Savings-Management/assets/user.png" alt="Profile" class="header__profile-pic">
             <div class="header__header-user-info">
-                <div class="header__header-username" id="headerUsername">Trần Thúy An</div>
-                <div class="header__header-role" id="headerRole">Quản lý</div>
+                <div class="header__header-username" id="headerUsername"></div>
+                <div class="header__header-role" id="headerRole"></div>
             </div>
         </div>
     </div>

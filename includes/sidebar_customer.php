@@ -1,4 +1,4 @@
-<!-- includes/sidebar.php -->
+<!-- includes/sidebar_customer.php -->
 <div class="sidebar__sidebar">
     <div class="sidebar__logo">
         <h2>Quản Lý Tiết Kiệm</h2>
