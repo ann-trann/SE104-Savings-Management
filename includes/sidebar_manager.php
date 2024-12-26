@@ -45,7 +45,7 @@
     <div class="sidebar__nav-menu" id="logout">
         <ul>
             <li>
-                <a href="/SE104-Savings-Management/index" class="sidebar__full-link">
+                <a href="/SE104-Savings-Management/logout" class="sidebar__full-link">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Đăng xuất</span>
                 </a>
