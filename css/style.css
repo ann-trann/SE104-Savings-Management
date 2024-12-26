@@ -189,3 +189,24 @@ tr:hover {
 .filter-date .date-input label {
     width: 80px;
 }
+
+
+
+
+/* Password Field Styles */
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input .toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+}
+
+.password-input .toggle-password:hover {
+    color: #8B0000;
+}

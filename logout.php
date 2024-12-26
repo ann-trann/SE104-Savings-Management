@@ -17,7 +17,7 @@ session_destroy();
             // Xóa localStorage
             localStorage.clear();
             // Chuyển hướng về trang index
-            window.location.href = '/SE104-Savings-Management/index';
+            window.location.href = '/SE104-Savings-Management/';
         }
         // Gọi function khi trang load
         window.onload = logoutHandler;

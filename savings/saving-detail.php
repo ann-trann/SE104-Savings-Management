@@ -3,22 +3,14 @@ $page = 'saving-detail';
 $page_title = 'Chi Tiết Phiếu Tiết Kiệm';
 
 require "../includes/global.php";
+require_once "../includes/auth.php";
+$userRole = checkAuth();
 
-// Lấy mã phiếu từ URL parameter
-$maTietKiem = isset($_GET['id']) ? $_GET['id'] : '';
+include '../includes/header.php';
 
-// Lấy thông tin phiếu tiết kiệm từ database
-// $query = "SELECT pt.*, tk.SoTaiKhoan, kh.HoTen 
-//           FROM PHIEUGOITIEN pt 
-//           JOIN TAIKHOAN tk ON pt.SoTaiKhoan = tk.SoTaiKhoan 
-//           JOIN KHACHHANG kh ON tk.MaKH = kh.MaKH 
-//           WHERE pt.MaTietKiem = ?";
-// Thực hiện query và lấy data
+// Load sidebar dựa theo role
+loadSidebar2();
 ?>
-
-
-<?php include '../includes/header.php'; ?>
-<?php include '../includes/sidebar.php'; ?>
 
 
 <div class="main-content">
@@ -33,7 +25,7 @@ $maTietKiem = isset($_GET['id']) ? $_GET['id'] : '';
 
     <div class="saving-detail__card">
         <div class="saving-detail__card-header-container">
-            <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm #<?php echo $maTietKiem; ?></h2>
+            <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm</h2>
             <div class="card-actions">
                 <button class="btn btn-warning" onclick="showWithdrawModal()">
                     <i class="fas fa-money-bill-wave"></i> Rút tiền

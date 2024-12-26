@@ -3,15 +3,15 @@ $page = 'account-detail';
 $page_title = 'Chi Tiết Tài Khoản';
 
 require "../includes/global.php";
+require_once "../includes/auth.php";
+$userRole = checkAuth();
 
-// Lấy mã tài khoản từ URL parameter
-$accountId = isset($_GET['id']) ? $_GET['id'] : '';
+include '../includes/header.php';
 
-// TODO: Thực hiện query để lấy thông tin tài khoản và lịch sử giao dịch
+// Load sidebar dựa theo role
+loadSidebar2();
 ?>
 
-<?php include '../includes/header.php'; ?>
-<?php include '../includes/sidebar.php'; ?>
 
 <div class="main-content">
     <div class="content-header">

@@ -79,14 +79,3 @@ loadSidebar();
         </div>
     </div>
 </div>
-
-<script src="js/sidebar.js"></script>
-
-<script>
-    function logout() {
-        // Redirect to login page
-        window.location.href = 'login';
-    }
-</script>
-
-</html>

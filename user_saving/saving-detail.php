@@ -15,7 +15,7 @@ $maTietKiem = isset($_GET['id']) ? $_GET['id'] : '';
 <div class="main-content">
     <div class="content-header">
         <div class="header-actions">
-            <button class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/accounts'">
+            <button class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/user_saving'">
                 <i class="fas fa-arrow-left"></i> Quay lại
             </button>
         </div>

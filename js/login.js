@@ -1,10 +1,5 @@
 // login.js
 
-// Function to capitalize first letter
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 // Function to display role when page loads
 function displayRole() {
     const selectedRole = localStorage.getItem('selectedRole');
