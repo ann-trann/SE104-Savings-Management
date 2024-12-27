@@ -39,20 +39,18 @@ loadSidebar2();
                         <th>Họ và tên</th>
                         <th>CCCD/CMND</th>
                         <th>Số điện thoại</th>
-                        <th>Email</th>
                         <th>Địa chỉ</th>
                         <th>Số phiếu</th>
-                        <th>Tổng tiền gửi</th>
+                        <th>Số dư</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>#KH001</td>
                         <td>Nguyễn Văn A</td>
                         <td>001301123456</td>
                         <td>0901234567</td>
-                        <td>nguyenvana@email.com</td>
                         <td>Hà Nội</td>
                         <td>3</td>
                         <td><span class="money">300000000 đ</span></td>
@@ -65,20 +63,21 @@ loadSidebar2();
                         <td>Trần Văn B</td>
                         <td>001301123434</td>
                         <td>0901234541</td>
-                        <td>tranvanb@email.com</td>
                         <td>Hồ Chí Minh</td>
                         <td>2</td>
                         <td><span class="money">250000000 đ</span></td>
                         <td>
                             <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'account-detail';"><i class="fas fa-eye"></i></button>
                         </td>
-                    </tr>
+                    </tr> -->
                     <!-- Thêm các dòng khác -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
 
 <script src="../js/sidebar.js"></script>
 <script src="../js/accounts.js"></script>

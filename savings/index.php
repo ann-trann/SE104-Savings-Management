@@ -40,16 +40,20 @@ loadSidebar2();
             </select>
         </div>
         <div class="filter-date">
-            <div class="date-input">
-                <label for="from-date">Từ ngày:</label>
-                <input type="date" id="from-date" class="form-control">
+            <div class="filter-date-inputs">
+                <div class="date-input">
+                    <label for="from-date">Từ ngày:</label>
+                    <input type="date" id="from-date" class="form-control">
+                </div>
+                <div class="date-input">
+                    <label for="to-date">Đến ngày:</label>
+                    <input type="date" id="to-date" class="form-control">
+                </div>
             </div>
-            <div class="date-input">
-                <label for="to-date">Đến ngày:</label>
-                <input type="date" id="to-date" class="form-control">
-            </div>
+            <button id="reset-date" class="btn btn-secondary">
+                <i class="fas fa-undo"></i> Đặt lại
+            </button>
         </div>
-
     </div>
 
     <div class="card">
@@ -64,13 +68,13 @@ loadSidebar2();
                         <th>Kỳ hạn</th>
                         <th>Lãi suất</th>
                         <th>Ngày gửi</th>
-                        <th>Ngày tất toán</th>
+                        <th>Ngày đáo hạn</th>
                         <th>Trạng thái</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <td>#PTK001</td>
                         <td>Nguyễn Văn A</td>
                         <td><span class="money">100000000 đ</span></td>
@@ -95,7 +99,7 @@ loadSidebar2();
                         <td>
                             <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'saving-detail';"><i class="fas fa-eye"></i></button>
                         </td>
-                    </tr>
+                    </tr> -->
                     <!-- Thêm các dòng khác -->
                 </tbody>
             </table>
@@ -104,3 +108,4 @@ loadSidebar2();
 </div>
 
 <script src="../js/sidebar.js"></script>
+<script src="../js/saving.js"></script>

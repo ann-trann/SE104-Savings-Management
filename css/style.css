@@ -210,3 +210,32 @@ tr:hover {
 .password-input .toggle-password:hover {
     color: #8B0000;
 }
+
+
+/* ------------------------- */
+.filter-date {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.date-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-input label {
+    width: 80px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    height: 38px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

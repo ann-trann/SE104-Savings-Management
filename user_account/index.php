@@ -3,11 +3,6 @@ $page = 'account-detail';
 $page_title = 'Chi Tiết Tài Khoản';
 
 require "../includes/global.php";
-
-// Lấy mã tài khoản từ URL parameter
-$accountId = isset($_GET['id']) ? $_GET['id'] : '';
-
-// TODO: Thực hiện query để lấy thông tin tài khoản và lịch sử giao dịch
 ?>
 
 <?php include '../includes/header.php'; ?>
