@@ -2,6 +2,7 @@ package com.example.saving_management.Controller;
 
 import com.example.saving_management.DTO.Request.ApiResponse;
 import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
+import com.example.saving_management.DTO.Response.FormResponse;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
 import com.example.saving_management.DTO.Response.SavingDetailResponse;
 import com.example.saving_management.Exception.AppRuntimeException;
@@ -36,10 +37,10 @@ public class SavingController {
     }
 
     @GetMapping("/fill-in-form")
-    ApiResponse<Long> getSavingId() {
-        long result = savingService.getSavingBookId();
+    ApiResponse<FormResponse> getSavingId() {
+        FormResponse result = savingService.getSavingBookId();
 
-        return ApiResponse.<Long>builder().result(result).build();
+        return ApiResponse.<FormResponse>builder().result(result).build();
     }
 
     @PostMapping("/create")
@@ -55,7 +56,7 @@ public class SavingController {
     }
 
     @GetMapping("/detail")
-    ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam long id) {
+    ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam("id") long id) {
         SavingDetailResponse result = savingService.getDetailSaving(id);
         return ApiResponse.<SavingDetailResponse>builder().result(result).build();
     }

@@ -1,9 +1,7 @@
 package com.example.saving_management.Service;
 
 import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
-import com.example.saving_management.DTO.Response.SavingBookResponse;
-import com.example.saving_management.DTO.Response.SavingDetailResponse;
-import com.example.saving_management.DTO.Response.TransactionResponse;
+import com.example.saving_management.DTO.Response.*;
 import com.example.saving_management.Entity.LoaiTietKiem;
 import com.example.saving_management.Entity.PhieuGoiTien;
 import com.example.saving_management.Entity.PhieuRutTien;
@@ -67,10 +65,38 @@ public class SavingService {
         ).toList();
     }
 
-    public long getSavingBookId() {
-        PhieuGoiTien phieuGoiTien = new PhieuGoiTien();
+    public FormResponse getSavingBookId() {
+        PhieuGoiTien phieuGoiTien = PhieuGoiTien.builder()
+                .soTienGoi(0.00)
+                .ngayGoi(LocalDate.now())
+                .tienLaiPhatSinh(0.00)
+                .laiSuat(0)
+                .maHTGH(1)
+                .maLoaiTK(1)
+                .ngayDaoHan(LocalDate.now())
+                .soDuHienCo(0.00)
+                .soTK(Long.valueOf(1001))
+                .build();
+
         PhieuGoiTien phieuGoiTienSaved = phieuGoiTienRepository.save(phieuGoiTien);
-        return phieuGoiTienSaved.getMaTK();
+
+        List<LoaiTietKiem> list = loaiTietKiemRepository.findAll();
+        List<SavingTypeResponse> savingTypeResponses = list.stream().map( loaiTietKiem -> {
+            String type = "Không kỳ hạn";
+            if (loaiTietKiem.getMaLoaiTietKiem() != 3) {
+                type = loaiTietKiem.getKyHan() + " tháng";
+            }
+
+            return SavingTypeResponse.builder()
+                    .savingName(type)
+                    .savingId(loaiTietKiem.getMaLoaiTietKiem())
+                    .interestRate(loaiTietKiem.getLaiSuat()).build();
+        }).toList();
+
+        return FormResponse.builder()
+                .bookId(phieuGoiTienSaved.getMaTK())
+                .savingTypeResponses(savingTypeResponses)
+                .build();
     }
 
     public void createNewSavingBook(CreateSavingBookRequest request) throws AppRuntimeException {

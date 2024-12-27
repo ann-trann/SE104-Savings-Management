@@ -60,4 +60,10 @@ public interface PhieuGoiTienRepository extends JpaRepository<PhieuGoiTien, Long
             FROM phieugoitien 
             WHERE MATIETKIEM = :id""", nativeQuery = true)
     int getMaLoaiTkFromMaTK(@Param("id") long id);
+
+    @Query(value = """
+            SELECT COUNT(*) FROM phieugoitien
+            WHERE MONTH(NGAYGOI) = :month AND YEAR(NGAYGOI) = :year
+            """, nativeQuery = true)
+    int getNumberOfNewBook(@Param("month") int month, @Param("year") int year);
 }
