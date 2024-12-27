@@ -29,10 +29,16 @@ loadSidebar2();
                     <h2>Thông tin tài khoản #KH001</h2>
                     <span class="account-number">Số tài khoản: 1234567890</span>
                 </div>
+
                 <div class="account-balance">
                     <label>Số dư hiện tại</label>
-                    <span class="balance-amount"><span class="money">50000000 đ<span class="money"></span>
+                    <span class="balance-amount"><span class="money">50000000 đ</span></span>
                 </div>
+            </div>
+            <div class="account-actions">
+                <button class="btn btn-primary" onclick="showEditModal()">
+                    <i class="fas fa-edit"></i> Chỉnh sửa thông tin
+                </button>
             </div>
             <div class="account-details">
                 <div class="detail-item">
@@ -48,14 +54,43 @@ loadSidebar2();
                     <span>0901234567</span>
                 </div>
                 <div class="detail-item">
-                    <label>Email:</label>
-                    <span>nguyenvana@email.com</span>
-                </div>
-                <div class="detail-item">
                     <label>Địa chỉ:</label>
                     <span>Hà Nội</span>
                 </div>
             </div>
+
+            <!-- Modal Chỉnh sửa thông tin -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Chỉnh sửa thông tin tài khoản</h3>
+                        <span class="close" onclick="closeEditModal()">&times;</span>
+                    </div>
+                    <form id="editAccountForm" onsubmit="return handleEdit(event)">
+                        <div class="form-group">
+                            <label for="accountName">Họ và tên:</label>
+                            <input type="text" id="accountName" class="form-control" value="Nguyễn Văn A" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountPhone">Số điện thoại:</label>
+                            <input type="tel" id="accountPhone" class="form-control" value="0901234567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountId">CCCD/CMND:</label>
+                            <input type="text" id="accountId" class="form-control" value="001301123456" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountAddress">Địa chỉ:</label>
+                            <input type="text" id="accountAddress" class="form-control" value="Hà Nội" required>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -195,17 +230,5 @@ loadSidebar2();
     </div>
 </div>
 
-<script>
-    function filterTransactions() {
-        const fromDate = document.getElementById('fromDate').value;
-        const toDate = document.getElementById('toDate').value;
-        const transactionType = document.getElementById('transactionType').value;
 
-        // TODO: Implement filtering logic
-        console.log('Filtering transactions:', {
-            fromDate,
-            toDate,
-            transactionType
-        });
-    }
-</script>
+<script src="../js/account-detail.js"></script>

@@ -56,10 +56,6 @@ loadSidebar2();
                         <label for="withdrawAmount">Số tiền rút:</label>
                         <input type="number" id="withdrawAmount" name="withdrawAmount" class="form-control" required>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="withdrawNote">Ghi chú:</label>
-                        <textarea id="withdrawNote" name="withdrawNote" class="form-control"></textarea>
-                    </div> -->
                     <div class="modal-actions">
                         <button type="submit" class="btn btn-primary">Xác nhận</button>
                         <button type="button" class="btn btn-secondary" onclick="closeWithdrawModal()">Hủy</button>
@@ -98,10 +94,6 @@ loadSidebar2();
                     </div>
                 </div>
                 <form id="settlementForm" onsubmit="return handleSettlement(event)">
-                    <!-- <div class="form-group">
-                        <label for="settlementNote">Ghi chú:</label>
-                        <textarea id="settlementNote" name="settlementNote" class="form-control"></textarea>
-                    </div> -->
                     <div class="modal-actions">
                         <button type="submit" class="btn btn-primary">Xác nhận tất toán</button>
                         <button type="button" class="btn btn-secondary" onclick="closeSettlementModal()">Hủy</button>

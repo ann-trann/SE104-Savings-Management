@@ -41,7 +41,7 @@ loadSidebar();
 
     <div class="monthly-report card">
         <div class="report-header">
-            <h2>Báo Cáo Doanh Số Hoạt Động Tháng</h2>
+            <h2>Báo Cáo Hoạt Động Tháng</h2>
             <div class="report-month">Tháng: 12/2024</div>
         </div>
 
