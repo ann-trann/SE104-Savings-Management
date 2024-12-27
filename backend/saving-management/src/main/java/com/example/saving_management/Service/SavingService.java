@@ -20,6 +20,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,6 +89,10 @@ public class SavingService {
         phieuGoiTienRepository.save(phieuGoiTien);
     }
 
+    public void deleteId(long id) {
+        phieuGoiTienRepository.deleteById(id);
+    }
+
     public SavingDetailResponse getDetailSaving(long id) {
         PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(id);
         LoaiTietKiem loaiTietKiem = loaiTietKiemRepository.findByMaLoaiTietKiem(phieuGoiTien.getMaLoaiTK());
@@ -149,5 +154,42 @@ public class SavingService {
 
         taiKhoan.setSoDu(taiKhoan.getSoDu() + money);
         taiKhoanRepository.save(taiKhoan);
+    }
+
+    public void settlement(long id) throws AppRuntimeException {
+        PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(id);
+        LoaiTietKiem loaiTietKiem = loaiTietKiemRepository.findByMaLoaiTietKiem(3);
+        if (phieuGoiTien.getSoDuHienCo() == 0) {
+            throw new AppRuntimeException(ErrorCode.NOT_ENOUGH);
+        }
+
+        int term = loaiTietKiemRepository.findByMaLoaiTietKiem(phieuGoiTien.getMaLoaiTK()).getKyHan();
+
+        double settlement = phieuGoiTien.getSoDuHienCo();
+        LocalDate settlementDate = phieuGoiTien.getNgayDaoHan();
+        LocalDate currentDate = LocalDate.now();
+
+        if (currentDate.isBefore(settlementDate)) {
+            long daysRemaining = term - ChronoUnit.DAYS.between(currentDate, settlementDate);
+
+            // Tính toán tiền lãi
+            settlement = settlement + (settlement * loaiTietKiem.getLaiSuat() * daysRemaining / 365);
+        }
+
+        TaiKhoan taiKhoan = taiKhoanRepository.findBySoTaiKhoan(phieuGoiTien.getSoTK());
+        PhieuRutTien phieuRutTien = PhieuRutTien.builder()
+                .soTienRut(settlement)
+                .ngayRut(LocalDate.now())
+                .maTK(phieuGoiTien.getMaTK())
+                .soTienConLai(0)
+                .build();
+
+        phieuRutTienRepository.save(phieuRutTien);
+
+        taiKhoan.setSoDu(taiKhoan.getSoDu() + settlement);
+        taiKhoanRepository.save(taiKhoan);
+
+        phieuGoiTien.setSoDuHienCo(0);
+        phieuGoiTienRepository.save(phieuGoiTien);
     }
 }

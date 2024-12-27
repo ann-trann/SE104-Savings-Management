@@ -1,7 +1,6 @@
 package com.example.saving_management.Controller;
 
 import com.example.saving_management.DTO.Request.ApiResponse;
-import com.example.saving_management.DTO.Request.CreateAccountRequest;
 import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
 import com.example.saving_management.DTO.Response.SavingDetailResponse;
@@ -49,6 +48,12 @@ public class SavingController {
         return ApiResponse.<Void>builder().build();
     }
 
+    @PatchMapping("/drop")
+    ApiResponse<Void> deleteId(@RequestParam("id") long id) {
+        savingService.deleteId(id);
+        return ApiResponse.<Void>builder().build();
+    }
+
     @GetMapping("/detail")
     ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam long id) {
         SavingDetailResponse result = savingService.getDetailSaving(id);
@@ -56,8 +61,18 @@ public class SavingController {
     }
 
     @PostMapping("/withdraw")
-    ApiResponse<Void> withDrawMoney(@RequestParam("id") long maTK, @RequestParam("money") double money) throws AppRuntimeException {
+    ApiResponse<Void> withdrawMoney(@RequestParam("id") long maTK, @RequestParam("money") double money) throws AppRuntimeException {
         savingService.withdrawMoney(maTK, money);
+        return ApiResponse.<Void>builder().build();
+    }
+
+    @PostMapping("/settlement")
+    ApiResponse<Void> settlement(@RequestParam("id") long maTK) throws AppRuntimeException {
+        try {
+            savingService.settlement(maTK);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return ApiResponse.<Void>builder().build();
     }
 }
