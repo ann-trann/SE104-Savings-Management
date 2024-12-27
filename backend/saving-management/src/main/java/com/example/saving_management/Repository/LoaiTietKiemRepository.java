@@ -7,4 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoaiTietKiemRepository extends JpaRepository<LoaiTietKiem, Integer> {
     LoaiTietKiem findByMaLoaiTietKiem(int savingId);
+
+    boolean existsByKyHan(int kyHan);
+
+    LoaiTietKiem findByKyHan(int kyHan);
 }

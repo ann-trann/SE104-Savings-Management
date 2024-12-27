@@ -1,4 +1,4 @@
-package com.example.saving_management.DTO.Response;
+package com.example.saving_management.DTO.Request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PrivacyResponse {
-    int minIncome;
-    List<SavingPrivacyTypeResponse> savingTypeResponseList;
+public class UpdatePrivacyRequest {
+    int soTienToiThieu;
+    List<SavingTypeRequest> savingTypeRequests;
 }

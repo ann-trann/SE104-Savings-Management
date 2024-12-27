@@ -10,9 +10,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+@Data
 @Table(name = "thamso")
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -24,3 +24,5 @@ public class ThamSo {
     @Column(name = "GIATRI")
     int giaTri;
 }
+
+
