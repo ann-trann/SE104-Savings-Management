@@ -8,8 +8,9 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class SavingTypeResponse {
+public class SavingPrivacyTypeResponse {
     int savingId;
-    String savingName;
+    int term;
+    int date;
     float interestRate;
 }

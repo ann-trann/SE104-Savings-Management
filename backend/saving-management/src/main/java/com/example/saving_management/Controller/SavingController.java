@@ -36,6 +36,12 @@ public class SavingController {
         return ApiResponse.<List<SavingBookResponse>>builder().result(result).build();
     }
 
+    @GetMapping("/customer")
+    ApiResponse<String> getCustomerName(@RequestParam("id") long soTK) throws AppRuntimeException {
+        String result = savingService.getCustomerName(soTK);
+        return ApiResponse.<String>builder().result(result).build();
+    }
+
     @GetMapping("/fill-in-form")
     ApiResponse<FormResponse> getSavingId() {
         FormResponse result = savingService.getSavingBookId();

@@ -48,6 +48,14 @@ public class SavingService {
         ).toList();
     }
 
+    public String getCustomerName(long soTaiKhoan) throws AppRuntimeException {
+        TaiKhoan taiKhoan = taiKhoanRepository.findById(soTaiKhoan).orElseThrow(
+                () -> new AppRuntimeException(ErrorCode.USER_NOT_EXIST)
+        );
+
+        return taiKhoan.getTenKH();
+    }
+
     public List<SavingBookResponse> getListSavingBookFiltered(LocalDate startDate, LocalDate endDate) {
         List<PhieuGoiTien> phieuGoiTienList = phieuGoiTienRepository.getSavingBookFilter(startDate, endDate);
 
