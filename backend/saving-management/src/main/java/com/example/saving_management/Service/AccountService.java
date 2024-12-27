@@ -34,7 +34,7 @@ public class AccountService {
                         .cccd(taiKhoan.getCMND())
                         .customerName(taiKhoan.getTenKH())
                         .numberOfBook(phieuGoiTienRepository.numberOfSavingBookById(taiKhoan.getSoTaiKhoan()))
-                        .depositTotal(phieuGoiTienRepository.numberOfSavingBookById(taiKhoan.getSoTaiKhoan()))
+                        .depositTotal(taiKhoan.getSoDu())
                         .build()
         ).toList();
     }

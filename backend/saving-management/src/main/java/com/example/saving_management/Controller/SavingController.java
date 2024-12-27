@@ -4,6 +4,7 @@ import com.example.saving_management.DTO.Request.ApiResponse;
 import com.example.saving_management.DTO.Request.CreateAccountRequest;
 import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
+import com.example.saving_management.DTO.Response.SavingDetailResponse;
 import com.example.saving_management.Exception.AppRuntimeException;
 import com.example.saving_management.Service.SavingService;
 import lombok.AccessLevel;
@@ -50,4 +51,7 @@ public class SavingController {
     }
 
 //    @GetMapping("/detail")
+//    ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam long id) {
+//
+//    }
 }
