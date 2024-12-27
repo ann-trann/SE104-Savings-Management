@@ -4,7 +4,6 @@ import com.example.saving_management.DTO.Request.SavingTypeRequest;
 import com.example.saving_management.DTO.Request.UpdatePrivacyRequest;
 import com.example.saving_management.DTO.Response.PrivacyResponse;
 import com.example.saving_management.DTO.Response.SavingPrivacyTypeResponse;
-import com.example.saving_management.DTO.Response.SavingTypeResponse;
 import com.example.saving_management.Entity.LoaiTietKiem;
 import com.example.saving_management.Entity.ThamSo;
 import com.example.saving_management.Exception.AppRuntimeException;
