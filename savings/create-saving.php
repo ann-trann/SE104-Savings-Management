@@ -29,7 +29,7 @@ loadSidebar2();
                     <div class="form-group">
                         <label for="maTietKiem">Mã tiết kiệm</label>
                         <input type="text" id="maTietKiem" name="maTietKiem" class="form-control" 
-                               disabled value="TK<?php echo time(); ?>" required>
+                               disabled value="" required>
                     </div>
                     
                     <div class="form-group">
@@ -37,7 +37,7 @@ loadSidebar2();
                         <div class="search-account">
                             <input type="text" id="searchAccount" class="form-control" 
                                    placeholder="Nhập số tài khoản cần tìm...">
-                            <button type="button" class="btn btn-primary" onclick="searchAccount()">
+                            <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -66,9 +66,9 @@ loadSidebar2();
                         <label for="loaiTietKiem">Loại tiết kiệm</label>
                         <select id="loaiTietKiem" name="loaiTietKiem" class="form-control" required>
                             <option value="">Chọn loại tiết kiệm</option>
-                            <option value="1">3 tháng</option>
+                            <!-- <option value="1">3 tháng</option>
                             <option value="2">6 tháng</option>
-                            <option value="3">Không kỳ hạn</option>
+                            <option value="3">Không kỳ hạn</option> -->
                         </select>
                     </div>
 

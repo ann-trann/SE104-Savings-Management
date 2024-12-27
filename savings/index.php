@@ -74,32 +74,6 @@ loadSidebar2();
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td>#PTK001</td>
-                        <td>Nguyễn Văn A</td>
-                        <td><span class="money">100000000 đ</span></td>
-                        <td>6 tháng</td>
-                        <td>5.0%</td>
-                        <td>15/12/2024</td>
-                        <td>15/06/2025</td>
-                        <td><span class="status active">Đang hoạt động</span></td>
-                        <td>
-                            <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'saving-detail';"><i class="fas fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#PTK001</td>
-                        <td>Trần Văn B</td>
-                        <td><span class="money">100000000 đ</span></td>
-                        <td>3 tháng</td>
-                        <td>5.5%</td>
-                        <td>15/12/2024</td>
-                        <td>15/06/2025</td>
-                        <td><span class="status completed">Đã tất toán</span></td>
-                        <td>
-                            <button class="btn-icon" title="Chi tiết" onclick="window.location.href = 'saving-detail';"><i class="fas fa-eye"></i></button>
-                        </td>
-                    </tr> -->
                     <!-- Thêm các dòng khác -->
                 </tbody>
             </table>

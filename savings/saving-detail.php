@@ -27,10 +27,10 @@ loadSidebar2();
         <div class="saving-detail__card-header-container">
             <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm</h2>
             <div class="card-actions">
-                <button class="btn btn-warning" onclick="showWithdrawModal()">
+                <button class="btn btn-warning" onclick="showWithdrawModal()" hidden>
                     <i class="fas fa-money-bill-wave"></i> Rút tiền
                 </button>
-                <button class="btn btn-danger" onclick="showSettlementModal()">
+                <button class="btn btn-danger" onclick="showSettlementModal()" hidden>
                     <i class="fas fa-check-circle"></i> Tất toán
                 </button>
             </div>
@@ -46,7 +46,11 @@ loadSidebar2();
                 <form id="withdrawForm" onsubmit="return handleWithdraw(event)">
                     <div class="form-group">
                         <label for="savingId">Mã sổ tiết kiệm:</label>
-                        <input type="text" id="savingId" class="form-control" value="#PTK001" readonly>
+                        <input type="text" id="savingId" class="form-control" value="" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="savingId">Số tiền:</label>
+                        <input type="number" id="savingMoney" class="form-control" value="0" readonly>
                     </div>
                     <div class="form-group">
                         <label for="withdrawDate">Ngày rút tiền:</label>
@@ -73,7 +77,7 @@ loadSidebar2();
                 </div>
                 <div class="form-group">
                     <label for="savingIdSettlement">Mã sổ tiết kiệm:</label>
-                    <input type="text" id="savingIdSettlement" class="form-control" value="#PTK001" readonly>
+                    <input type="text" id="savingIdSettlement" class="form-control" value="" readonly>
                 </div>
                 <div class="form-group">
                     <label for="settlementDate">Ngày tất toán:</label>
@@ -109,44 +113,44 @@ loadSidebar2();
                 <div class="detail-row">
                     <div class="detail-group">
                         <label>Mã phiếu:</label>
-                        <span>#PTK001</span>
+                        <span></span>
                     </div>
                     <div class="detail-group">
                         <label>Số tài khoản:</label>
-                        <span>1234567890</span>
+                        <span></span>
                     </div>
                 </div>
 
                 <div class="detail-row">
                     <div class="detail-group">
                         <label>Tên khách hàng:</label>
-                        <span>Nguyễn Văn A</span>
+                        <span></span>
                     </div>
                     <div class="detail-group">
                         <label>Số tiền tiết kiệm:</label>
-                        <span class="money">100000000 đ</span>
+                        <span class="money"></span>
                     </div>
                 </div>
 
                 <div class="detail-row">
                     <div class="detail-group">
                         <label>Kỳ hạn:</label>
-                        <span>6 tháng</span>
+                        <span></span>
                     </div>
                     <div class="detail-group">
                         <label>Lãi suất:</label>
-                        <span class="interest-rate">6.8%</span>
+                        <span class="interest-rate"></span>
                     </div>
                 </div>
 
                 <div class="detail-row">
                     <div class="detail-group">
                         <label>Ngày gửi:</label>
-                        <span>15/12/2024</span>
+                        <span></span>
                     </div>
                     <div class="detail-group">
                         <label>Ngày tất toán:</label>
-                        <span>15/06/2025</span>
+                        <span></span>
                     </div>
                 </div>
 
@@ -168,7 +172,6 @@ loadSidebar2();
                             <th>Loại giao dịch</th>
                             <th>Số tiền</th>
                             <th>Số dư sau GD</th>
-                            <th>Ghi chú</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -177,7 +180,6 @@ loadSidebar2();
                             <td>Gửi tiền</td>
                             <td class="money">+100000000 đ</td>
                             <td class="money">100000000 đ</td>
-                            <td>Gửi tiền lần đầu</td>
                         </tr>
 
                         <!-- Thêm các giao dịch khác nếu có -->
@@ -189,50 +191,5 @@ loadSidebar2();
 </div>
 
 
-<script>
-    // Xử lý modal rút tiền
-    function showWithdrawModal() {
-        document.getElementById('withdrawModal').style.display = 'block';
-    }
 
-    function closeWithdrawModal() {
-        document.getElementById('withdrawModal').style.display = 'none';
-    }
-
-    // Xử lý modal tất toán
-    function showSettlementModal() {
-        document.getElementById('settlementModal').style.display = 'block';
-    }
-
-    function closeSettlementModal() {
-        document.getElementById('settlementModal').style.display = 'none';
-    }
-
-    // Đóng modal khi click nút X
-    document.querySelectorAll('.close').forEach(function(element) {
-        element.onclick = function() {
-            this.closest('.modal').style.display = 'none';
-        }
-    });
-
-    // Đóng modal khi click bên ngoài
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-        }
-    }
-
-    function handleWithdraw(event) {
-        event.preventDefault();
-        // Xử lý logic rút tiền ở đây
-        closeWithdrawModal();
-        return false;
-    }
-
-    function handleSettlement(event) {
-        event.preventDefault();
-        // Xử lý logic tất toán ở đây
-        closeSettlementModal();
-        return false;
-    }
-</script>
+<script src="../js/saving-detail.js"></script>
