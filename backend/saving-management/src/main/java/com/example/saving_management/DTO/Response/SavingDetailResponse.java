@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Builder
@@ -22,4 +23,6 @@ public class SavingDetailResponse {
     double currentAmount;
     float interestRate;
     LocalDate settlementDate;
+
+    List<TransactionResponse> transactionResponseList;
 }

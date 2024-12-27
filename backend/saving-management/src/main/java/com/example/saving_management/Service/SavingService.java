@@ -2,12 +2,17 @@ package com.example.saving_management.Service;
 
 import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
+import com.example.saving_management.DTO.Response.SavingDetailResponse;
+import com.example.saving_management.DTO.Response.TransactionResponse;
 import com.example.saving_management.Entity.LoaiTietKiem;
 import com.example.saving_management.Entity.PhieuGoiTien;
+import com.example.saving_management.Entity.PhieuRutTien;
+import com.example.saving_management.Entity.TaiKhoan;
 import com.example.saving_management.Exception.AppRuntimeException;
 import com.example.saving_management.Exception.ErrorCode;
 import com.example.saving_management.Repository.LoaiTietKiemRepository;
 import com.example.saving_management.Repository.PhieuGoiTienRepository;
+import com.example.saving_management.Repository.PhieuRutTienRepository;
 import com.example.saving_management.Repository.TaiKhoanRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +20,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +30,7 @@ public class SavingService {
     TaiKhoanRepository taiKhoanRepository;
     PhieuGoiTienRepository phieuGoiTienRepository;
     LoaiTietKiemRepository loaiTietKiemRepository;
+    PhieuRutTienRepository phieuRutTienRepository;
 
     public List<SavingBookResponse> getListSavingBook() {
         List<PhieuGoiTien> phieuGoiTienList = phieuGoiTienRepository.findAll();
@@ -78,5 +85,30 @@ public class SavingService {
         phieuGoiTien.setSoTK(request.getAccountId());
 
         phieuGoiTienRepository.save(phieuGoiTien);
+    }
+
+    public SavingDetailResponse getDetailSaving(long id) {
+        PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(id);
+        LoaiTietKiem loaiTietKiem = loaiTietKiemRepository.findByMaLoaiTietKiem(phieuGoiTien.getMaLoaiTK());
+        List<PhieuRutTien> phieuRutTien = phieuRutTienRepository.findAllByMaTK(id);
+        TaiKhoan taiKhoan = taiKhoanRepository.findBySoTaiKhoan(phieuGoiTien.getSoTK());
+
+        List<TransactionResponse> list = new ArrayList<>();
+        TransactionResponse transactionResponse;
+
+        return SavingDetailResponse.builder()
+                .id(id)
+                .accountId(phieuGoiTien.getMaTK())
+                .amount(phieuGoiTien.getSoTienGoi())
+                .currentAmount(phieuGoiTien.getSoDuHienCo())
+                .customerName(taiKhoan.getTenKH())
+                .interestRate(loaiTietKiem.getLaiSuat())
+                .sendDate(phieuGoiTien.getNgayGoi())
+                .settlementDate(phieuGoiTien.getNgayDaoHan())
+                .status(phieuGoiTien.getSoDuHienCo() == 0)
+                .term(loaiTietKiem.getKyHan())
+                .transactionResponseList(phieuRutTien.stream().map(
+                        phieu
+                )).build();
     }
 }
