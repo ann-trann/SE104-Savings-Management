@@ -50,4 +50,6 @@ public interface PhieuGoiTienRepository extends JpaRepository<PhieuGoiTien, Long
             WHERE ngaygoi >= :startDate and ngaygoi <= :endDate
             """, nativeQuery = true)
     List<PhieuGoiTien> getSavingBookFilter(@Param("startDate")LocalDate startDate, @Param("endDate") LocalDate endDate);
+
+    PhieuGoiTien findByMaTK(long id);
 }

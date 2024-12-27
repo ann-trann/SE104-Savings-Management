@@ -1,7 +1,10 @@
 package com.example.saving_management.Controller;
 
 import com.example.saving_management.DTO.Request.ApiResponse;
+import com.example.saving_management.DTO.Request.CreateAccountRequest;
+import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
+import com.example.saving_management.Exception.AppRuntimeException;
 import com.example.saving_management.Service.SavingService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +44,10 @@ public class SavingController {
     }
 
     @PostMapping("/create")
-    ApiResponse<Void> createNewSavingBook(@RequestBody )
+    ApiResponse<Void> createNewSavingBook(@RequestBody CreateSavingBookRequest request) throws AppRuntimeException {
+        savingService.createNewSavingBook(request);
+        return ApiResponse.<Void>builder().build();
+    }
+
+//    @GetMapping("/detail")
 }
