@@ -1,4 +1,4 @@
-package com.example.saving_management.DTO.Request;
+package com.example.saving_management.DTO.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,12 +11,15 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateSavingBookRequest {
+public class SavingDetailResponse {
     long id;
-    long accountId;
+    String customerName;
+    int term;
     LocalDate sendDate;
-    double deposit;
-    int savingId;
-    int extendId;
+    boolean status;
+    long accountId;
+    double amount;
+    double currentAmount;
     float interestRate;
+    LocalDate settlementDate;
 }

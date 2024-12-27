@@ -1,7 +1,12 @@
 package com.example.saving_management.Service;
 
+import com.example.saving_management.DTO.Request.CreateSavingBookRequest;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
+import com.example.saving_management.Entity.LoaiTietKiem;
 import com.example.saving_management.Entity.PhieuGoiTien;
+import com.example.saving_management.Exception.AppRuntimeException;
+import com.example.saving_management.Exception.ErrorCode;
+import com.example.saving_management.Repository.LoaiTietKiemRepository;
 import com.example.saving_management.Repository.PhieuGoiTienRepository;
 import com.example.saving_management.Repository.TaiKhoanRepository;
 import lombok.AccessLevel;
@@ -18,6 +23,7 @@ import java.util.List;
 public class SavingService {
     TaiKhoanRepository taiKhoanRepository;
     PhieuGoiTienRepository phieuGoiTienRepository;
+    LoaiTietKiemRepository loaiTietKiemRepository;
 
     public List<SavingBookResponse> getListSavingBook() {
         List<PhieuGoiTien> phieuGoiTienList = phieuGoiTienRepository.findAll();
@@ -56,5 +62,21 @@ public class SavingService {
         PhieuGoiTien phieuGoiTien = new PhieuGoiTien();
         PhieuGoiTien phieuGoiTienSaved = phieuGoiTienRepository.save(phieuGoiTien);
         return phieuGoiTienSaved.getMaTK();
+    }
+
+    public void createNewSavingBook(CreateSavingBookRequest request) throws AppRuntimeException {
+        LoaiTietKiem loaiTietKiem = loaiTietKiemRepository.findByMaLoaiTietKiem(request.getSavingId());
+
+        PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(request.getId());
+        phieuGoiTien.setNgayGoi(request.getSendDate());
+        phieuGoiTien.setLaiSuat(request.getInterestRate());
+        phieuGoiTien.setSoTienGoi(request.getDeposit());
+        phieuGoiTien.setMaHTGH(request.getExtendId());
+        phieuGoiTien.setMaLoaiTK(request.getSavingId());
+        phieuGoiTien.setNgayDaoHan(request.getSendDate().plusDays(loaiTietKiem.getSoNgayToiThieuRutTien()));
+        phieuGoiTien.setSoDuHienCo(request.getDeposit());
+        phieuGoiTien.setSoTK(request.getAccountId());
+
+        phieuGoiTienRepository.save(phieuGoiTien);
     }
 }
