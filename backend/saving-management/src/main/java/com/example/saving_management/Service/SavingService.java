@@ -137,6 +137,7 @@ public class SavingService {
         TransactionResponse transactionResponse = TransactionResponse.builder()
                 .amount(phieuGoiTien.getSoTienGoi())
                 .transactionDate(phieuGoiTien.getNgayGoi())
+                .balanceAfterTransaction(phieuGoiTien.getSoTienGoi())
                 .type("Gửi tiền").build();
 
         list.add(transactionResponse);
@@ -147,6 +148,7 @@ public class SavingService {
                             .type("Rút tiền")
                             .transactionDate(phieu.getNgayRut())
                             .amount(phieu.getSoTienRut())
+                            .balanceAfterTransaction(phieu.getSoTienConLai())
                             .build()
             ).toList();
 

@@ -15,4 +15,5 @@ public class TransactionResponse {
     LocalDate transactionDate;
     String type;
     double amount;
+    double balanceAfterTransaction;
 }
