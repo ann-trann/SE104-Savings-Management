@@ -34,6 +34,17 @@ loadSidebar();
                     <div class="savings-type">
                         <div class="saving-types__form-group">
                             <label>Kỳ hạn:</label>
+                            <input type="text" class="form-control" value="Không kỳ hạn" readonly>
+                        </div>
+                        <div class="saving-types__form-group">
+                            <label>Lãi suất (%):</label>
+                            <input type="number" class="form-control" value="0.5" step="0.1" min="0">
+                        </div>
+                    </div>
+
+                    <div class="savings-type">
+                        <div class="saving-types__form-group">
+                            <label>Kỳ hạn:</label>
                             <input type="text" class="form-control" value="3 tháng" readonly>
                         </div>
                         <div class="saving-types__form-group">
@@ -44,9 +55,6 @@ loadSidebar();
                             <label>Lãi suất (%):</label>
                             <input type="number" class="form-control" value="5.5" step="0.1">
                         </div>
-                        <button type="button" class="btn-icon delete-type" title="Xóa">
-                            <i class="fas fa-trash"></i>
-                        </button>
                     </div>
 
                     <div class="savings-type">
@@ -62,35 +70,12 @@ loadSidebar();
                             <label>Lãi suất (%):</label>
                             <input type="number" class="form-control" value="6.0" step="0.1">
                         </div>
-                        <button type="button" class="btn-icon delete-type" title="Xóa">
-                            <i class="fas fa-trash"></i>
-                        </button>
                     </div>
                 </div>
 
                 <button type="button" class="btn btn-secondary" id="addSavingsType">
                     <i class="fas fa-plus"></i> Thêm loại tiết kiệm
                 </button>
-            </div>
-
-            <div class="rules-section">
-                <h3>Hình thức gia hạn</h3>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="renewPrincipal" name="renewalTypes" value="principal">
-                            <label for="renewPrincipal">Tự động gia hạn gốc</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="renewPrincipalAndInterest" name="renewalTypes" value="principalAndInterest">
-                            <label for="renewPrincipalAndInterest">Tự động gia hạn gốc và lãi</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="closeOnMaturity" name="renewalTypes" value="close">
-                            <label for="closeOnMaturity">Tất toán khi đến hạn</label>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="form-actions">
@@ -101,6 +86,24 @@ loadSidebar();
     </div>
 </div>
 
+<!-- Modal for changes confirmation -->
+<div id="changesModal" class="modal">
+    <div class="rule-modal-content">
+        <div class="modal-header">
+            <h3>Xác nhận thay đổi</h3>
+            <button type="button" class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="changesList">
+                <!-- Changes will be listed here -->
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="confirmChanges">Xác nhận</button>
+            <button type="button" class="btn btn-secondary" id="cancelChanges">Hủy</button>
+        </div>
+    </div>
+</div>
 
 <!-- Add at the bottom of rules.php -->
 <script src="./js/rules.js"></script>

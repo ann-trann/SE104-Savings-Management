@@ -41,12 +41,12 @@ loadSidebar2();
                 </button>
             </div>
             <div class="account-details">
-                <div class="detail-item">
+                <!-- <div class="detail-item">
                     <label>Chủ tài khoản:</label>
                     <span>Nguyễn Văn A</span>
                 </div>
                 <div class="detail-item">
-                    <label>CCCD/CMND:</label>
+                    <label>CMND:</label>
                     <span>001301123456</span>
                 </div>
                 <div class="detail-item">
@@ -56,7 +56,7 @@ loadSidebar2();
                 <div class="detail-item">
                     <label>Địa chỉ:</label>
                     <span>Hà Nội</span>
-                </div>
+                </div> -->
             </div>
 
             <!-- Modal Chỉnh sửa thông tin -->

@@ -28,19 +28,19 @@ loadSidebar();
     <div class="dashboard-stats">
         <div class="stat-card">
             <h3>Tổng số phiếu</h3>
-            <div class="value">1,234</div>
+            <div class="value"></div>
         </div>
         <div class="stat-card">
             <h3>Tổng tiền gửi</h3>
-            <div class="value"><span class="money">2345678000 đ</span></div>
+            <div class="value"><span class="money"></span></div>
         </div>
         <div class="stat-card">
             <h3>Số tài khoản</h3>
-            <div class="value">567</div>
+            <div class="value"></div>
         </div>
         <div class="stat-card">
             <h3>Số phiếu đang hoạt động</h3>
-            <div class="value">395</div>
+            <div class="value"></div>
         </div>
     </div>
 
@@ -59,23 +59,11 @@ loadSidebar();
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>#PTK001</td>
-                        <td>Nguyễn Văn A</td>
-                        <td><span class="money">100000000 đ</span></td>
-                        <td>15/12/2024</td>
-                        <td><span class="status active">Đang hoạt động</span></td>
-                    </tr>
-                    <tr>
-                        <td>#PTK001</td>
-                        <td>Nguyễn Văn A</td>
-                        <td><span class="money">100000000 đ</span></td>
-                        <td>15/12/2024</td>
-                        <td><span class="status active">Đang hoạt động</span></td>
-                    </tr>
                     <!-- Thêm các dòng khác -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script src="js/dashboard.js"></script>
