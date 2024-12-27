@@ -94,7 +94,24 @@ public class SavingService {
         TaiKhoan taiKhoan = taiKhoanRepository.findBySoTaiKhoan(phieuGoiTien.getSoTK());
 
         List<TransactionResponse> list = new ArrayList<>();
-        TransactionResponse transactionResponse;
+        TransactionResponse transactionResponse = TransactionResponse.builder()
+                .amount(phieuGoiTien.getSoTienGoi())
+                .transactionDate(phieuGoiTien.getNgayGoi())
+                .type("Gửi tiền").build();
+
+        list.add(transactionResponse);
+
+        if (phieuRutTien != null) {
+            List<TransactionResponse> rutTienList = phieuRutTien.stream().map(
+                    phieu -> TransactionResponse.builder()
+                            .type("Rút tiền")
+                            .transactionDate(phieu.getNgayRut())
+                            .amount(phieu.getSoTienRut())
+                            .build()
+            ).toList();
+
+            list.addAll(rutTienList);
+        }
 
         return SavingDetailResponse.builder()
                 .id(id)
@@ -107,8 +124,6 @@ public class SavingService {
                 .settlementDate(phieuGoiTien.getNgayDaoHan())
                 .status(phieuGoiTien.getSoDuHienCo() == 0)
                 .term(loaiTietKiem.getKyHan())
-                .transactionResponseList(phieuRutTien.stream().map(
-                        phieu
-                )).build();
+                .transactionResponseList(list).build();
     }
 }

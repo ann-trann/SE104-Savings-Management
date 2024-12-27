@@ -18,14 +18,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/savings")
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class SavingController {
     SavingService savingService;
 
     @GetMapping("/")
     ApiResponse<List<SavingBookResponse>> getListSavingBook() {
         List<SavingBookResponse> result = savingService.getListSavingBook();
-
         return ApiResponse.<List<SavingBookResponse>>builder().result(result).build();
     }
 

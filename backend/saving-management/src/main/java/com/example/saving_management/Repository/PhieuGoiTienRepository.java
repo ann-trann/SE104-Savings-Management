@@ -4,10 +4,12 @@ import com.example.saving_management.Entity.PhieuGoiTien;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface PhieuGoiTienRepository extends JpaRepository<PhieuGoiTien, Long> {
     @Query(value = """
             SELECT count(*) FROM phieugoitien;
