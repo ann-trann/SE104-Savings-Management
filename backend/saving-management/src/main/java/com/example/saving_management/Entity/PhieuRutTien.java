@@ -27,4 +27,7 @@ public class PhieuRutTien {
 
     @Column(name = "SOTIENRUT")
     double soTienRut;
+
+    @Column(name = "SOTIENCONLAI")
+    double soTienConLai;
 }

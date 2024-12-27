@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -125,5 +126,28 @@ public class SavingService {
                 .status(phieuGoiTien.getSoDuHienCo() == 0)
                 .term(loaiTietKiem.getKyHan())
                 .transactionResponseList(list).build();
+    }
+
+    public void withdrawMoney(long id, double money) throws AppRuntimeException {
+        PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(id);
+        if (phieuGoiTien.getSoDuHienCo() < money) {
+            throw new AppRuntimeException(ErrorCode.NOT_ENOUGH);
+        }
+
+        TaiKhoan taiKhoan = taiKhoanRepository.findBySoTaiKhoan(phieuGoiTien.getSoTK());
+        PhieuRutTien phieuRutTien = PhieuRutTien.builder()
+                .soTienRut(money)
+                .ngayRut(LocalDate.now())
+                .maTK(phieuGoiTien.getMaTK())
+                .soTienConLai(phieuGoiTien.getSoDuHienCo() - money)
+                .build();
+
+        phieuRutTienRepository.save(phieuRutTien);
+
+        phieuGoiTien.setSoDuHienCo(phieuGoiTien.getSoDuHienCo() - money);
+        phieuGoiTienRepository.save(phieuGoiTien);
+
+        taiKhoan.setSoDu(taiKhoan.getSoDu() + money);
+        taiKhoanRepository.save(taiKhoan);
     }
 }

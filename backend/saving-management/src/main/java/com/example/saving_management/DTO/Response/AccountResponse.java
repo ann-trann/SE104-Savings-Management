@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 public class AccountResponse {
     long id;
     String customerName;
-    String cccd;
+    String cmnd;
     String sdt;
     String address;
     int numberOfBook;

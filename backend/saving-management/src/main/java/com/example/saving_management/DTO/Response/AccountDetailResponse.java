@@ -13,10 +13,11 @@ import java.util.List;
 public class AccountDetailResponse {
     long id;
     String customerName;
-    String cccd;
+    String cmnd;
     String sdt;
     String address;
     double currentBalance;
 
     List<SavingBookResponse> savingBookResponseList;
+    List<TransactionResponse> transactionResponseList;
 }

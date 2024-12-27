@@ -23,13 +23,15 @@ public class AccountController {
 
     @GetMapping("/accounts")
     ApiResponse<List<AccountResponse>> getListAccount(){
-        List<AccountResponse> result = accountService.getListAccount();
+            List<AccountResponse> result = accountService.getListAccount();
+
         return ApiResponse.<List<AccountResponse>>builder().result(result).build();
     }
 
     @GetMapping("/fill-in-information")
     ApiResponse<Long> getAccountId() {
         long result = accountService.getAccountId();
+
         return ApiResponse.<Long>builder().result(result).build();
     }
 
@@ -39,9 +41,18 @@ public class AccountController {
         return ApiResponse.<Void>builder().build();
     }
 
-    @GetMapping("/accounts-detail")
+    @PatchMapping("/drop")
+    ApiResponse<Void> deleteId(@RequestParam long id) {
+        accountService.deleteId(id);
+
+        return ApiResponse.<Void>builder().build();
+    }
+
+    @GetMapping("/account-detail")
     ApiResponse<AccountDetailResponse> getAccountInfo(@RequestParam("id") long id){
-         AccountDetailResponse result = accountService.getAccountInfo(id);
+
+        AccountDetailResponse result = accountService.getAccountInfo(id);
+
          return ApiResponse.<AccountDetailResponse>builder().result(result).build();
     }
 }

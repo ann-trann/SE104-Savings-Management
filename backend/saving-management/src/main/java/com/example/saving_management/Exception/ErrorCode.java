@@ -10,7 +10,8 @@ public enum ErrorCode {
     USER_EXISTED(1001, "User existed", HttpStatus.BAD_REQUEST),
     USER_NOT_EXIST(1002, "User is not exist", HttpStatus.NOT_FOUND),
     UNAUTHENTICATED(1003, "Unauthenticated", HttpStatus.UNAUTHORIZED),
-    WRONG_PASSWORD(1005, "Wrong password", HttpStatus.BAD_REQUEST);
+    WRONG_PASSWORD(1005, "Wrong password", HttpStatus.BAD_REQUEST),
+    NOT_ENOUGH(1006, "Current Balance is not enough", HttpStatus.BAD_REQUEST);
 
     private final int code;
     private final String message;

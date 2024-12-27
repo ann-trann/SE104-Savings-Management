@@ -39,5 +39,5 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Long> {
 
     boolean existsByCMND(String cccd);
 
-    TaiKhoan findBySoTaiKhoan(Long soTK);
+    TaiKhoan findBySoTaiKhoan(long soTK);
 }

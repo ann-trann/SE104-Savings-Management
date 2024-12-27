@@ -49,8 +49,15 @@ public class SavingController {
         return ApiResponse.<Void>builder().build();
     }
 
-//    @GetMapping("/detail")
-//    ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam long id) {
-//
-//    }
+    @GetMapping("/detail")
+    ApiResponse<SavingDetailResponse> getDetailSaving(@RequestParam long id) {
+        SavingDetailResponse result = savingService.getDetailSaving(id);
+        return ApiResponse.<SavingDetailResponse>builder().result(result).build();
+    }
+
+    @PostMapping("/withdraw")
+    ApiResponse<Void> withDrawMoney(@RequestParam("id") long maTK, @RequestParam("money") double money) throws AppRuntimeException {
+        savingService.withdrawMoney(maTK, money);
+        return ApiResponse.<Void>builder().build();
+    }
 }

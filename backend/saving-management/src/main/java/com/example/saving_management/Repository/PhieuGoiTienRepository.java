@@ -19,18 +19,18 @@ public interface PhieuGoiTienRepository extends JpaRepository<PhieuGoiTien, Long
     @Query(value = """
             SELECT count(*) FROM phieugoitien WHERE SOTAIKHOAN = :stk
             """, nativeQuery = true)
-    public int numberOfSavingBookById(@Param("stk") long stk);
+    int numberOfSavingBookById(@Param("stk") long stk);
 
     @Query(value = """
             SELECT sum(SOTIENGOI) FROM phieugoitien
             """, nativeQuery = true)
-    public double depositTotal();
+    double depositTotal();
 
     @Query(value = """
             SELECT sum(SOTIENGOI) FROM phieugoitien
             WHERE SOTAIKHOAN = :stk
             """, nativeQuery = true)
-    public double depositTotalById(@Param("stk") long stk);
+    Double depositTotalById(@Param("stk") long stk);
 
     @Query(value = """
             SELECT count(*) FROM phieugoitien WHERE SODUHIENCO > 0
@@ -54,4 +54,10 @@ public interface PhieuGoiTienRepository extends JpaRepository<PhieuGoiTien, Long
     List<PhieuGoiTien> getSavingBookFilter(@Param("startDate")LocalDate startDate, @Param("endDate") LocalDate endDate);
 
     PhieuGoiTien findByMaTK(long id);
+
+    @Query(value = """
+            SELECT MALOAITIETKIEM
+            FROM phieugoitien 
+            WHERE MATIETKIEM = :id""", nativeQuery = true)
+    int getMaLoaiTkFromMaTK(@Param("id") long id);
 }

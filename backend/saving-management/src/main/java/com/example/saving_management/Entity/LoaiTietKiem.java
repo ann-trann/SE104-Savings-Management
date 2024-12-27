@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "loatietkiem")
+@Table(name = "loaitietkiem")
 public class LoaiTietKiem {
     @Column(name = "MALOAITIETKIEM")
     @Id
