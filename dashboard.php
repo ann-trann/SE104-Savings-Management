@@ -3,11 +3,14 @@ $page = 'dashboard';
 $page_title = 'Trang chủ';
 
 require "includes/global.php";
+require_once "includes/auth.php";
+$userRole = checkAuth();
+
+include 'includes/header.php';
+
+// Load sidebar dựa theo role
+loadSidebar();
 ?>
-
-
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
 
 <div class="main-content">
 
@@ -76,14 +79,3 @@ require "includes/global.php";
         </div>
     </div>
 </div>
-
-<script src="js/sidebar.js"></script>
-
-<script>
-    function logout() {
-        // Redirect to login page
-        window.location.href = 'login';
-    }
-</script>
-
-</html>

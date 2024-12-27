@@ -3,20 +3,19 @@ $page = 'saving-detail';
 $page_title = 'Chi Tiết Phiếu Tiết Kiệm';
 
 require "../includes/global.php";
-require_once "../includes/auth.php";
-$userRole = checkAuth();
 
-include '../includes/header.php';
-
-// Load sidebar dựa theo role
-loadSidebar2();
+$maTietKiem = isset($_GET['id']) ? $_GET['id'] : '';
 ?>
+
+
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/sidebar_customer.php'; ?>
 
 
 <div class="main-content">
     <div class="content-header">
         <div class="header-actions">
-            <button class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/savings'">
+            <button class="btn btn-secondary" onclick="window.location.href='/SE104-Savings-Management/user_saving'">
                 <i class="fas fa-arrow-left"></i> Quay lại
             </button>
         </div>
@@ -25,7 +24,7 @@ loadSidebar2();
 
     <div class="saving-detail__card">
         <div class="saving-detail__card-header-container">
-            <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm</h2>
+            <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm #<?php echo $maTietKiem; ?></h2>
             <div class="card-actions">
                 <button class="btn btn-warning" onclick="showWithdrawModal()">
                     <i class="fas fa-money-bill-wave"></i> Rút tiền

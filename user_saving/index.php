@@ -3,54 +3,35 @@ $page = 'savings';
 $page_title = 'Phiếu tiết kiệm';
 
 require "../includes/global.php";
-require_once "../includes/auth.php";
-$userRole = checkAuth();
-
-include '../includes/header.php';
-
-// Load sidebar dựa theo role
-loadSidebar2();
 ?>
+
+
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/sidebar_customer.php'; ?>
 
 
 <div class="main-content">
 
     <div class="content-header">
         <div class="header-actions">
-            <div class="create-btn">
-                <button class="btn btn-primary" onclick="window.location.href = 'create-saving';">
-                    <i class="fas fa-plus"></i> Thêm phiếu mới
-                </button>
-            </div>
             <div class="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm phiếu tiết kiệm...">
                     <i class="fas fa-search"></i>
                 </div>
             </div>
+
+
+            <div class="filter-status"> Trạng thái:
+                <select class="form-control">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="active">Đang hoạt động</option>
+                    <option value="completed">Đã tất toán</option>
+                </select>
+            </div>
         </div>
     </div>
 
-    <div class="filter">
-        <div class="filter-status"> Trạng thái:
-            <select class="form-control">
-                <option value="">Tất cả trạng thái</option>
-                <option value="active">Đang hoạt động</option>
-                <option value="completed">Đã tất toán</option>
-            </select>
-        </div>
-        <div class="filter-date">
-            <div class="date-input">
-                <label for="from-date">Từ ngày:</label>
-                <input type="date" id="from-date" class="form-control">
-            </div>
-            <div class="date-input">
-                <label for="to-date">Đến ngày:</label>
-                <input type="date" id="to-date" class="form-control">
-            </div>
-        </div>
-
-    </div>
 
     <div class="card">
         <h2 class="card-header">Danh sách phiếu tiết kiệm</h2>

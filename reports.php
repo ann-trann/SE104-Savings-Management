@@ -2,11 +2,16 @@
 $page = 'reports';
 $page_title = 'Báo cáo';
 
-require "includes/global.php";
-?>
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/sidebar.php'; ?>
+require "includes/global.php";
+require_once "includes/auth.php";
+$userRole = checkAuth();
+
+include 'includes/header.php';
+
+// Load sidebar dựa theo role
+loadSidebar();
+?>
 
 <div class="main-content">
     <div class="report-filters">
@@ -83,5 +88,3 @@ require "includes/global.php";
 
     </div>
 </div>
-
-<script src="js/sidebar.js"></script>

@@ -1,4 +1,4 @@
-<!-- includes/sidebar.php -->
+<!-- includes/sidebar_employee.php -->
 <div class="sidebar__sidebar">
     <div class="sidebar__logo">
         <h2>Quản Lý Tiết Kiệm</h2>
@@ -25,27 +25,14 @@
                     <span>Phiếu tiết kiệm</span>
                 </a>
             </li>
-            
-            <li class="<?php echo $page == 'reports' ? 'sidebar__active' : ''; ?>">
-                <a href="/SE104-Savings-Management/reports" class="sidebar__full-link">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Báo cáo doanh số</span>
-                </a>
-            </li>
 
-            <li class="<?php echo $page == 'rules' ? 'sidebar__active' : ''; ?>">
-                <a href="/SE104-Savings-Management/rules" class="sidebar__full-link">
-                    <i class="fas fa-cog"></i>
-                    <span>Thay đổi quy định</span>
-                </a>
-            </li>
         </ul>
     </nav>
 
     <div class="sidebar__nav-menu" id="logout">
         <ul>
             <li>
-                <a href="/SE104-Savings-Management/index" class="sidebar__full-link">
+                <a href="/SE104-Savings-Management/logout" class="sidebar__full-link">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Đăng xuất</span>
                 </a>

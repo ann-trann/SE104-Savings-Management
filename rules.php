@@ -2,11 +2,15 @@
 $page = 'rules';
 $page_title = 'Thay đổi quy định';
 
-require "./includes/global.php";
-?>
+require "includes/global.php";
+require_once "includes/auth.php";
+$userRole = checkAuth();
 
-<?php include './includes/header.php'; ?>
-<?php include './includes/sidebar.php'; ?>
+include 'includes/header.php';
+
+// Load sidebar dựa theo role
+loadSidebar();
+?>
 
 <div class="main-content">
     <div class="card" id="rules-card">

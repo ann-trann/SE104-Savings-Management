@@ -3,12 +3,14 @@ $page = 'create-saving';
 $page_title = 'Tạo Phiếu Tiết Kiệm';
 
 require "../includes/global.php";
+require_once "../includes/auth.php";
+$userRole = checkAuth();
+
+include '../includes/header.php';
+
+// Load sidebar dựa theo role
+loadSidebar2();
 ?>
-
-
-<?php include '../includes/header.php'; ?>
-<?php include '../includes/sidebar.php'; ?>
-
 
 <div class="main-content">
     <div class="content-header">
