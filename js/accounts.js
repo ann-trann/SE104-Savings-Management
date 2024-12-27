@@ -42,7 +42,7 @@ const displayAccounts = (accounts) => {
         <tr>
             <td>${account.id}</td>
             <td>${account.customerName}</td>
-            <td>${account.cccd}</td>
+            <td>${account.cmnd}</td>
             <td>${account.sdt}</td>
             <td>${account.address}</td>
             <td>${account.numberOfBook}</td>

@@ -14,7 +14,7 @@ const formatDate = (dateString) => {
 
 // Get term type display
 const getTermType = (months) => {
-    return months === null ? 'Không thời hạn' : `${months} tháng`;
+    return months === 0 ? 'Không thời hạn' : `${months} tháng`;
 };
 
 // Determine saving status

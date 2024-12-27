@@ -50,9 +50,9 @@ loadSidebar2();
                 <!-- Cột phải -->
                 <div class="right-col">
                     <div class="form-group">
-                        <label for="cmnd">CCCD/CMND</label>
+                        <label for="cmnd">CMND</label>
                         <input type="text" id="cmnd" name="cmnd" class="form-control" required
-                            pattern="[0-9]{9}|[0-9]{12}" title="CMND 9 số hoặc CCCD 12 số">
+                            pattern="[0-9]{12}" title="CMND 12 số">
                     </div>
                     <div class="form-group">
                         <label for="ngayMoTK">Ngày mở tài khoản</label>

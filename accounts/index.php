@@ -37,11 +37,11 @@ loadSidebar2();
                     <tr>
                         <th>Mã tài khoản</th>
                         <th>Họ và tên</th>
-                        <th>CCCD/CMND</th>
+                        <th>CMND</th>
                         <th>Số điện thoại</th>
                         <th>Địa chỉ</th>
                         <th>Số phiếu</th>
-                        <th>Số dư</th>
+                        <th>Tổng tiền gửi</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
