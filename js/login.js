@@ -54,14 +54,17 @@ function getLoginEndpoint(role) {
 
 // Function to set cookies with user data
 function setUserCookies(userData) {
-    document.cookie = `isLoggedIn=true; path=/`;
-    document.cookie = `userRole=${userData.role}; path=/`;
-    document.cookie = `userName=${encodeURIComponent(userData.name)}; path=/`;
-    document.cookie = `minIncome=${userData.minIncome}; path=/`;
+    // Set common cookie parameters
+    const cookieOptions = '; path=/';
+    
+    // Store all user data in cookies
+    document.cookie = `isLoggedIn=true${cookieOptions}`;
+    document.cookie = `userRole=${userData.role.toLowerCase()}${cookieOptions}`;
+    document.cookie = `userName=${encodeURIComponent(userData.name)}${cookieOptions}`;
+    document.cookie = `minIncome=${userData.minIncome}${cookieOptions}`;
+    document.cookie = `id=${userData.id}${cookieOptions}`; // Changed from userId to id to match response
 }
 
-// Updated login function
-// Updated login function
 async function login(event) {
     event.preventDefault();
     
@@ -99,7 +102,7 @@ async function login(event) {
         const data = await response.json();
 
         if (data.code === 0 && data.result) {
-            // Convert role to appropriate value for cookie
+            // Convert role to appropriate value
             let role;
             switch (data.result.role.toLowerCase()) {
                 case 'admin':
@@ -111,15 +114,16 @@ async function login(event) {
                 default:
                     role = 'customer';
             }
-        
-            // Store user data in cookies
-            setUserCookies({ ...data.result, role });
-        
+            
+            // Store user data in cookies using the updated function
+            setUserCookies({
+                ...data.result,
+                role
+            });
+            
             // Redirect based on role
             switch (role) {
                 case 'manager':
-                    window.location.href = 'dashboard';
-                    break;
                 case 'employee':
                     window.location.href = 'dashboard';
                     break;
@@ -128,8 +132,6 @@ async function login(event) {
                     break;
             }
         } else {
-            // Show error message below password field
-            // errorElement.textContent = data.message || 'Sai vai trò đăng nhập!';
             errorElement.textContent = 'Vai trò hoặc Tên đăng nhập/ mật khẩu không đúng!';
         }
         

@@ -87,13 +87,13 @@ public class AccountService {
 
     public void updateAccount(long id, UpdateAccountRequest request) throws AppRuntimeException {
         TaiKhoan taiKhoan = taiKhoanRepository.getAccountById(id);
-        if (!taiKhoan.getSoTaiKhoan().equals(request.getSdt()) && taiKhoanRepository.existsBySDT(request.getSdt())) {
+        if (!taiKhoan.getSDT().equals(request.getSdt()) && taiKhoanRepository.existsBySDT(request.getSdt())) {
             throw new AppRuntimeException(ErrorCode.USER_EXISTED);
         }
 
         taiKhoan.setSDT(request.getSdt());
         taiKhoan.setTenKH(request.getName());
-        taiKhoan.setDiachi(request.getName());
+        taiKhoan.setDiachi(request.getAddress());
 
         taiKhoanRepository.save(taiKhoan);
     }

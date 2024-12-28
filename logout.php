@@ -14,8 +14,9 @@ session_destroy();
             // Xóa cookies
             document.cookie = 'isLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             document.cookie = 'userRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            // document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            // document.cookie = 'minIncome=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'minIncome=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             // Xóa localStorage
             localStorage.clear();
             // Chuyển hướng về trang index

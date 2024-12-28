@@ -13,34 +13,30 @@ require "../includes/global.php";
         <div class="account-info-card">
             <div class="account-header">
                 <div class="account-title">
-                    <h2>Thông tin tài khoản #KH001</h2>
-                    <span class="account-number">Số tài khoản: 1234567890</span>
+                    <h2>Thông tin tài khoản</h2>
+                    <span class="account-number">Số tài khoản: </span>
                 </div>
                 <div class="account-balance">
                     <label>Số dư hiện tại</label>
-                    <span class="balance-amount"><span class="money">50000000 đ<span class="money"></span>
+                    <span class="balance-amount"><span class="money"><span class="money"></span>
                 </div>
             </div>
             <div class="account-details">
                 <div class="detail-item">
                     <label>Chủ tài khoản:</label>
-                    <span>Nguyễn Văn A</span>
+                    <span></span>
                 </div>
                 <div class="detail-item">
-                    <label>CCCD/CMND:</label>
-                    <span>001301123456</span>
+                    <label>CMND:</label>
+                    <span></span>
                 </div>
                 <div class="detail-item">
                     <label>Số điện thoại:</label>
-                    <span>0901234567</span>
-                </div>
-                <div class="detail-item">
-                    <label>Email:</label>
-                    <span>nguyenvana@email.com</span>
+                    <span></span>
                 </div>
                 <div class="detail-item">
                     <label>Địa chỉ:</label>
-                    <span>Hà Nội</span>
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -65,7 +61,7 @@ require "../includes/global.php";
                         <option value="">Tất cả</option>
                         <option value="deposit">Gửi tiền</option>
                         <option value="withdraw">Rút tiền</option>
-                        <option value="interest">Nhận lãi</option>
+                        <option value="interest">Tất toán</option>
                     </select>
                 </div>
                 <button class="btn btn-primary" onclick="filterTransactions()">
@@ -87,27 +83,6 @@ require "../includes/global.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>20/12/2024</td>
-                            <td><span class="transaction-type deposit">Gửi tiền</span></td>
-                            <td class="amount positive">+20,000,000 đ</td>
-                            <td class="balance">50,000,000 đ</td>
-                            <td>Nộp tiền mặt</td>
-                        </tr>
-                        <tr>
-                            <td>19/12/2024</td>
-                            <td><span class="transaction-type interest">Nhận lãi</span></td>
-                            <td class="amount positive">+500,000 đ</td>
-                            <td class="balance">30,000,000 đ</td>
-                            <td>Lãi từ STK #PTK001</td>
-                        </tr>
-                        <tr>
-                            <td>18/12/2024</td>
-                            <td><span class="transaction-type withdraw">Rút tiền</span></td>
-                            <td class="amount negative">-5,000,000 đ</td>
-                            <td class="balance">29,500,000 đ</td>
-                            <td>Rút tiền mặt</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -115,17 +90,5 @@ require "../includes/global.php";
     </div>
 </div>
 
-<script>
-    function filterTransactions() {
-        const fromDate = document.getElementById('fromDate').value;
-        const toDate = document.getElementById('toDate').value;
-        const transactionType = document.getElementById('transactionType').value;
 
-        // TODO: Implement filtering logic
-        console.log('Filtering transactions:', {
-            fromDate,
-            toDate,
-            transactionType
-        });
-    }
-</script>
+<script src="../js/user_account-detail.js"></script>

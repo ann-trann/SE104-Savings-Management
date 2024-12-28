@@ -53,19 +53,15 @@ loadSidebar2();
                     <form id="editAccountForm" onsubmit="return handleEdit(event)">
                         <div class="form-group">
                             <label for="accountName">Họ và tên:</label>
-                            <input type="text" id="accountName" class="form-control" value="Nguyễn Văn A" required>
+                            <input type="text" id="accountName" class="form-control" value="" required>
                         </div>
                         <div class="form-group">
                             <label for="accountPhone">Số điện thoại:</label>
-                            <input type="tel" id="accountPhone" class="form-control" value="0901234567" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="accountId">CCCD/CMND:</label>
-                            <input type="text" id="accountId" class="form-control" value="001301123456" required>
+                            <input type="tel" id="accountPhone" class="form-control" value="" required>
                         </div>
                         <div class="form-group">
                             <label for="accountAddress">Địa chỉ:</label>
-                            <input type="text" id="accountAddress" class="form-control" value="Hà Nội" required>
+                            <input type="text" id="accountAddress" class="form-control" value="" required>
                         </div>
                         <div class="modal-actions">
                             <button type="submit" class="btn btn-primary">Cập nhật</button>

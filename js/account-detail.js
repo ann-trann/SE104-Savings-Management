@@ -2,6 +2,17 @@
 // Edit account info
 
 function showEditModal() {
+    // Get current account details from the page
+    const customerName = document.querySelector('.account-details .detail-item:nth-child(1) span').textContent;
+    const phone = document.querySelector('.account-details .detail-item:nth-child(3) span').textContent;
+    const address = document.querySelector('.account-details .detail-item:nth-child(4) span').textContent;
+
+    // Populate form fields
+    document.getElementById('accountName').value = customerName;
+    document.getElementById('accountPhone').value = phone === 'Chưa cập nhật' ? '' : phone;
+    document.getElementById('accountAddress').value = address === 'Chưa cập nhật' ? '' : address;
+
+    // Show modal
     document.getElementById('editModal').style.display = 'block';
 }
 
@@ -9,11 +20,52 @@ function closeEditModal() {
     document.getElementById('editModal').style.display = 'none';
 }
 
-function handleEdit(event) {
+
+// Update handleEdit function to send update request
+async function handleEdit(event) {
     event.preventDefault();
-    // TODO: Thêm logic xử lý cập nhật thông tin
-    console.log('Updating account info...');
-    closeEditModal();
+    
+    // Get account ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const accountId = urlParams.get('id');
+    
+    // Get form values
+    const name = document.getElementById('accountName').value;
+    const phone = document.getElementById('accountPhone').value;
+    const address = document.getElementById('accountAddress').value;
+    
+    try {
+        const response = await fetch(`http://localhost:81/saving/account/update?id=${accountId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                sdt: phone,
+                name: name,
+                address: address
+            })
+        });
+
+        const data = await response.json();
+        
+        if (data.code === 0) {
+            // Update was successful
+            // Reload account details to show updated information
+            loadAccountDetails(accountId);
+            closeEditModal();
+        } else {
+            // Handle specific error codes
+            if (data.code === 'USER_EXISTED') {
+                alert('Số điện thoại đã được sử dụng cho tài khoản khác');
+            } else {
+                throw new Error(data.message || 'Cập nhật thông tin thất bại');
+            }
+        }
+    } catch (error) {
+        console.error('Error updating account:', error);
+        alert('Có lỗi xảy ra khi cập nhật thông tin. Vui lòng thử lại sau.');
+    }
 }
 
 // Đóng modal khi click bên ngoài
