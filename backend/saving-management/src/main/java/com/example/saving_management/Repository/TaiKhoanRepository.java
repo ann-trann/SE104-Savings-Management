@@ -40,4 +40,9 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Long> {
     boolean existsByCMND(String cccd);
 
     TaiKhoan findBySoTaiKhoan(long soTK);
+
+    @Query(value = """
+            SELECT * FROM taikhoan LIMIT 1
+            """, nativeQuery = true)
+    TaiKhoan findTK();
 }

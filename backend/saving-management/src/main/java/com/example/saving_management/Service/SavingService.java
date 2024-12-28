@@ -74,6 +74,7 @@ public class SavingService {
     }
 
     public FormResponse getSavingBookId() {
+        TaiKhoan taiKhoan = taiKhoanRepository.findTK();
         PhieuGoiTien phieuGoiTien = PhieuGoiTien.builder()
                 .soTienGoi(0.00)
                 .ngayGoi(LocalDate.now())
@@ -83,7 +84,7 @@ public class SavingService {
                 .maLoaiTK(1)
                 .ngayDaoHan(LocalDate.now())
                 .soDuHienCo(0.00)
-                .soTK(Long.valueOf(1001))
+                .soTK(taiKhoan.getSoTaiKhoan())
                 .build();
 
         PhieuGoiTien phieuGoiTienSaved = phieuGoiTienRepository.save(phieuGoiTien);
@@ -119,6 +120,7 @@ public class SavingService {
         phieuGoiTien.setNgayDaoHan(request.getSendDate().plusDays(loaiTietKiem.getSoNgayToiThieuRutTien()));
         phieuGoiTien.setSoDuHienCo(request.getDeposit());
         phieuGoiTien.setSoTK(request.getAccountId());
+        phieuGoiTien.setMaTK(request.getId());
 
         phieuGoiTienRepository.save(phieuGoiTien);
     }
