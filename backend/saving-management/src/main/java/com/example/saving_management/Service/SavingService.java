@@ -15,6 +15,8 @@ import com.example.saving_management.Repository.TaiKhoanRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
@@ -111,6 +114,7 @@ public class SavingService {
     public void createNewSavingBook(CreateSavingBookRequest request) throws AppRuntimeException {
         LoaiTietKiem loaiTietKiem = loaiTietKiemRepository.findByMaLoaiTietKiem(request.getSavingId());
 
+        log.error("MA TIET KIEM: {}", request.getId());
         PhieuGoiTien phieuGoiTien = phieuGoiTienRepository.findByMaTK(request.getId());
         phieuGoiTien.setNgayGoi(request.getSendDate());
         phieuGoiTien.setLaiSuat(request.getInterestRate());
@@ -159,7 +163,7 @@ public class SavingService {
 
         return SavingDetailResponse.builder()
                 .id(id)
-                .accountId(phieuGoiTien.getMaTK())
+                .accountId(phieuGoiTien.getSoTK())
                 .amount(phieuGoiTien.getSoTienGoi())
                 .currentAmount(phieuGoiTien.getSoDuHienCo())
                 .customerName(taiKhoan.getTenKH())
@@ -201,7 +205,7 @@ public class SavingService {
             throw new AppRuntimeException(ErrorCode.NOT_ENOUGH);
         }
 
-        int term = loaiTietKiemRepository.findByMaLoaiTietKiem(phieuGoiTien.getMaLoaiTK()).getKyHan();
+        int term = loaiTietKiemRepository.findByMaLoaiTietKiem(phieuGoiTien.getMaLoaiTK()).getSoNgayToiThieuRutTien();
 
         double settlement = phieuGoiTien.getSoDuHienCo();
         LocalDate settlementDate = phieuGoiTien.getNgayDaoHan();
