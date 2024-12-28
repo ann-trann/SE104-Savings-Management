@@ -2,9 +2,9 @@ package com.example.saving_management.Controller;
 
 import com.example.saving_management.DTO.Request.ApiResponse;
 import com.example.saving_management.DTO.Request.CreateAccountRequest;
+import com.example.saving_management.DTO.Request.UpdateAccountRequest;
 import com.example.saving_management.DTO.Response.AccountDetailResponse;
 import com.example.saving_management.DTO.Response.AccountResponse;
-import com.example.saving_management.Entity.TaiKhoan;
 import com.example.saving_management.Exception.AppRuntimeException;
 import com.example.saving_management.Service.AccountService;
 import lombok.AccessLevel;
@@ -38,6 +38,12 @@ public class AccountController {
     @PostMapping("/create")
     ApiResponse<Void> createAccount(@RequestBody CreateAccountRequest request) throws AppRuntimeException {
         accountService.createAccount(request);
+        return ApiResponse.<Void>builder().build();
+    }
+
+    @PutMapping("/update")
+    ApiResponse<Void> updateAccount(@RequestParam("id") long id, @RequestBody UpdateAccountRequest request) throws AppRuntimeException {
+        accountService.updateAccount(id, request);
         return ApiResponse.<Void>builder().build();
     }
 

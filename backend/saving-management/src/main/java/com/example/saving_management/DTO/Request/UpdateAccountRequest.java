@@ -1,4 +1,4 @@
-package com.example.saving_management.DTO.Response;
+package com.example.saving_management.DTO.Request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,9 +8,8 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class LoginResponse {
-    int minIncome;
+public class UpdateAccountRequest {
     String name;
-    String role;
-    long id;
+    String sdt;
+    String address;
 }

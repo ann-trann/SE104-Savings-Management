@@ -1,6 +1,7 @@
 package com.example.saving_management.Service;
 
 import com.example.saving_management.DTO.Request.CreateAccountRequest;
+import com.example.saving_management.DTO.Request.UpdateAccountRequest;
 import com.example.saving_management.DTO.Response.AccountDetailResponse;
 import com.example.saving_management.DTO.Response.AccountResponse;
 import com.example.saving_management.DTO.Response.SavingBookResponse;
@@ -81,6 +82,19 @@ public class AccountService {
                 .ngayMoTK(request.getSentDate())
                 .password(request.getPassword())
                 .build();
+        taiKhoanRepository.save(taiKhoan);
+    }
+
+    public void updateAccount(long id, UpdateAccountRequest request) throws AppRuntimeException {
+        TaiKhoan taiKhoan = taiKhoanRepository.getAccountById(id);
+        if (!taiKhoan.getSoTaiKhoan().equals(request.getSdt()) && taiKhoanRepository.existsBySDT(request.getSdt())) {
+            throw new AppRuntimeException(ErrorCode.USER_EXISTED);
+        }
+
+        taiKhoan.setSDT(request.getSdt());
+        taiKhoan.setTenKH(request.getName());
+        taiKhoan.setDiachi(request.getName());
+
         taiKhoanRepository.save(taiKhoan);
     }
 

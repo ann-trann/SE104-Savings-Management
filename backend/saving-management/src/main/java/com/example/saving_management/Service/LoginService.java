@@ -61,7 +61,8 @@ public class LoginService {
 
         return LoginResponse.builder().role(role)
                 .minIncome(thamSo.getGiaTri())
-                .name(user.getTenKH()).build();
+                .name(user.getTenKH())
+                .id(user.getSoTaiKhoan()).build();
     }
 
 
