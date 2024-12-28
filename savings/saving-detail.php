@@ -160,10 +160,18 @@ loadSidebar2();
                         <span class="status active">Đang hoạt động</span>
                     </div>
                     <div class="detail-group">
-                        <label>Ngày tất toán:</label>
+                        <label>Ngày đáo hạn:</label>
                         <span></span>
                     </div>
                 </div>
+
+                <div class="detail-row">
+                    <div class="detail-group">
+                        <label>Hình thức gia hạn:</label>
+                        <span class="expend-type"></span>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Lịch sử giao dịch -->

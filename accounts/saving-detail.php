@@ -23,7 +23,6 @@ loadSidebar2();
     </div>
 
 
-
     <div class="saving-detail__card">
         <div class="saving-detail__card-header-container">
             <h2 class="card-header">Chi Tiết Phiếu Tiết Kiệm</h2>
@@ -87,15 +86,15 @@ loadSidebar2();
                 <div class="settlement-info">
                     <div class="info-row">
                         <label>Số tiền gốc:</label>
-                        <span class="money">100000000 đ</span>
+                        <span class="money"></span>
                     </div>
                     <div class="info-row">
                         <label>Tiền lãi:</label>
-                        <span class="money interest">3400000 đ</span>
+                        <span class="money interest"></span>
                     </div>
                     <div class="info-row total">
                         <label>Tổng tiền:</label>
-                        <span class="money">103400000 đ</span>
+                        <span class="money"></span>
                     </div>
                 </div>
                 <form id="settlementForm" onsubmit="return handleSettlement(event)">
@@ -128,7 +127,7 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Số tiền tiết kiệm:</label>
+                        <label>Tiền gửi tiết kiệm:</label>
                         <span class="money"></span>
                     </div>
                 </div>
@@ -139,8 +138,8 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Lãi suất:</label>
-                        <span class="interest-rate"></span>
+                        <label>Số tiền hiện tại:</label>
+                        <span class="money"></span>
                     </div>
                 </div>
 
@@ -150,8 +149,8 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Ngày tất toán:</label>
-                        <span></span>
+                        <label>Lãi suất:</label>
+                        <span class="interest-rate"></span>
                     </div>
                 </div>
 
@@ -159,6 +158,18 @@ loadSidebar2();
                     <div class="detail-group">
                         <label>Trạng thái:</label>
                         <span class="status active">Đang hoạt động</span>
+                    </div>
+                    <div class="detail-group">
+                        <label>Ngày đáo hạn:</label>
+                        <span></span>
+                    </div>
+                </div>
+
+
+                <div class="detail-row">
+                    <div class="detail-group">
+                        <label>Hình thức gia hạn:</label>
+                        <span class="expend-type"></span>
                     </div>
                 </div>
             </div>

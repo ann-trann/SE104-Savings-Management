@@ -162,7 +162,23 @@ const getTermDisplay = (term) => {
     return term === 0 ? 'Không thời hạn' : `${term} tháng`;
 };
 
-// Update saving details on the page
+
+// Update the getExtensionTypeDisplay function
+const getExtensionTypeDisplay = (expendId) => {
+    switch (expendId) {
+        case 1:
+            return 'Gia hạn gốc lẫn lãi';
+        case 2:
+            return 'Gia hạn gốc';
+        case 3:
+            return 'Không gia hạn';
+        default:
+            return 'Không xác định';
+    }
+};
+
+
+
 const updateSavingDetails = (data) => {
     // Update basic information
     document.querySelector('.detail-row:nth-child(1) .detail-group:nth-child(1) span').textContent = `${data.id}`;
@@ -177,14 +193,20 @@ const updateSavingDetails = (data) => {
     document.querySelector('.detail-row:nth-child(4) .detail-group:nth-child(1) span').textContent = formatDate(data.sendDate);
     document.querySelector('.detail-row:nth-child(4) .detail-group:nth-child(2) span').textContent = `${(data.interestRate * 100).toFixed(1)}%`;
 
-    
-    document.querySelector('.detail-row:nth-child(5) .detail-group:nth-child(2) span').textContent = formatDate(data.settlementDate);
-    
-    // Update status
-    const statusElement = document.querySelector('.detail-row:nth-child(5) .detail-group span');
+    // Status and settlement date
+    const statusElement = document.querySelector('.detail-row:nth-child(5) .detail-group:nth-child(1) span');
     statusElement.textContent = data.status ? 'Đã tất toán' : 'Đang hoạt động';
     statusElement.className = `status ${data.status ? 'completed' : 'active'}`;
+    
+    document.querySelector('.detail-row:nth-child(5) .detail-group:nth-child(2) span').textContent = formatDate(data.settlementDate);
 
+    // Update extension type using the correct class
+    const expendTypeElement = document.querySelector('.expend-type');
+    if (expendTypeElement) {
+        expendTypeElement.textContent = getExtensionTypeDisplay(data.expendId);
+    }
+
+    
     // Show appropriate buttons based on term
     const withdrawButton = document.querySelector('.btn-warning');
     const settlementButton = document.querySelector('.btn-danger');
