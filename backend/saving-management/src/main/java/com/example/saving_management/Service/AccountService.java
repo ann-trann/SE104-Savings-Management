@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -92,27 +93,38 @@ public class AccountService {
         List<PhieuGoiTien> phieuGoiTienList = phieuGoiTienRepository.getSavingBookById(id);
         List<PhieuRutTien> phieuRutTienList = new ArrayList<>();
         List<SavingBookResponse> savingBookResponses = new ArrayList<>();
+        List<TransactionResponse> transactionResponseList = new ArrayList<>();
 
+        // Process deposit transactions
         for (PhieuGoiTien phieuGoiTien : phieuGoiTienList) {
-            SavingBookResponse savingBookResponse =  SavingBookResponse.builder()
-                                    .id(phieuGoiTien.getMaTK())
-                                    .term(phieuGoiTien.getMaLoaiTK() == 1 ? 3 : (phieuGoiTien.getMaLoaiTK() == 2 ? 6 : 0))
-                                    .openDate(phieuGoiTien.getNgayGoi())
-                                    .dueDate(phieuGoiTien.getNgayDaoHan())
-                                    .initialBalance(phieuGoiTien.getSoTienGoi())
-                                    .interestRate(phieuGoiTien.getLaiSuat())
-                                    .remainingAmount(phieuGoiTien.getSoDuHienCo())
-                                    .build();
+            SavingBookResponse savingBookResponse = SavingBookResponse.builder()
+                    .id(phieuGoiTien.getMaTK())
+                    .term(phieuGoiTien.getMaLoaiTK() == 1 ? 3 : (phieuGoiTien.getMaLoaiTK() == 2 ? 6 : 0))
+                    .openDate(phieuGoiTien.getNgayGoi())
+                    .dueDate(phieuGoiTien.getNgayDaoHan())
+                    .initialBalance(phieuGoiTien.getSoTienGoi())
+                    .interestRate(phieuGoiTien.getLaiSuat())
+                    .remainingAmount(phieuGoiTien.getSoDuHienCo())
+                    .build();
 
             savingBookResponses.add(savingBookResponse);
-            List<PhieuRutTien> phieuRutTiens = phieuRutTienRepository.findAllByMaTK(phieuGoiTien.getMaTK());
 
+            transactionResponseList.add(TransactionResponse.builder()
+                    .type("Gửi tiền")
+                    .balanceAfterTransaction(phieuGoiTien.getSoTienGoi())
+                    .amount(phieuGoiTien.getSoTienGoi())
+                    .transactionDate(phieuGoiTien.getNgayGoi())
+                    .savingId(phieuGoiTien.getMaTK())
+                    .description("Tạo tài khoản " + phieuGoiTien.getMaTK())
+                    .build());
+
+            List<PhieuRutTien> phieuRutTiens = phieuRutTienRepository.findAllByMaTK(phieuGoiTien.getMaTK());
             if (phieuRutTiens != null) {
                 phieuRutTienList.addAll(phieuRutTiens);
             }
         }
-        List<TransactionResponse> transactionResponseList = new ArrayList<>();
 
+        // Process withdrawal transactions
         for (PhieuRutTien phieuRutTien : phieuRutTienList) {
             int maLoaiTK = phieuGoiTienRepository.getMaLoaiTkFromMaTK(phieuRutTien.getMaTK());
             String type = "Tất toán";
@@ -124,10 +136,16 @@ public class AccountService {
                     .type(type)
                     .transactionDate(phieuRutTien.getNgayRut())
                     .amount(phieuRutTien.getSoTienRut())
+                    .balanceAfterTransaction(phieuRutTien.getSoTienConLai())
+                    .description(type + " từ tài khoản " + phieuRutTien.getMaTK())
+                    .savingId(phieuRutTien.getMaTK())
                     .build();
 
             transactionResponseList.add(transactionResponse);
         }
+
+        // Sort transactions by transaction date
+        Collections.sort(transactionResponseList, (t1, t2) -> t1.getTransactionDate().compareTo(t2.getTransactionDate()));
 
         return AccountDetailResponse.builder()
                 .id(accountInfo.getSoTaiKhoan())

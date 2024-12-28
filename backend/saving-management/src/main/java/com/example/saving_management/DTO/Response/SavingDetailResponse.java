@@ -17,6 +17,7 @@ public class SavingDetailResponse {
     String customerName;
     int term;
     LocalDate sendDate;
+    int expendId;
     boolean status;
     long accountId;
     double amount;

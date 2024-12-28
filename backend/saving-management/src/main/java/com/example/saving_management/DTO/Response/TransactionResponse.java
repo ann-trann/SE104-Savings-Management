@@ -16,4 +16,6 @@ public class TransactionResponse {
     String type;
     double amount;
     double balanceAfterTransaction;
+    String description;
+    long savingId;
 }

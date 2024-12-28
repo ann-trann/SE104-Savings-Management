@@ -172,6 +172,7 @@ public class SavingService {
                 .settlementDate(phieuGoiTien.getNgayDaoHan())
                 .status(phieuGoiTien.getSoDuHienCo() == 0)
                 .term(loaiTietKiem.getKyHan())
+                .expendId(phieuGoiTien.getMaHTGH())
                 .transactionResponseList(list).build();
     }
 
