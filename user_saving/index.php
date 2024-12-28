@@ -14,7 +14,7 @@ require "../includes/global.php";
 
     <div class="content-header">
         <div class="header-actions">
-            <div class="search">
+            <div class="search" hidden>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Tìm kiếm phiếu tiết kiệm...">
                     <i class="fas fa-search"></i>
@@ -22,7 +22,7 @@ require "../includes/global.php";
             </div>
 
 
-            <div class="filter-status"> Trạng thái:
+            <div class="filter-status" hidden> Trạng thái:
                 <select class="form-control">
                     <option value="">Tất cả trạng thái</option>
                     <option value="active">Đang hoạt động</option>
