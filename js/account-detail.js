@@ -66,6 +66,7 @@ const loadAccountDetails = async (accountId) => {
         const data = await response.json();
         
         if (data.code === 0 && data.result) {
+            // console.log('Account details:', data.result);
             updateAccountDetails(data.result);
         } else {
             throw new Error(data.message || 'Failed to load account details');
@@ -79,8 +80,8 @@ const loadAccountDetails = async (accountId) => {
 
 // Update account details in the UI
 const updateAccountDetails = (accountData) => {
-    // Update account header information
-    document.querySelector('.account-title h2').textContent = `Thông tin tài khoản ${accountData.id}`;
+    // Existing code for account header and details...
+    document.querySelector('.account-number').textContent = `Số tài khoản: ${accountData.id}`;
     document.querySelector('.balance-amount .money').textContent = formatCurrency(accountData.currentBalance);
 
     // Update account details
@@ -106,6 +107,53 @@ const updateAccountDetails = (accountData) => {
 
     // Update savings books list
     updateSavingsBooksList(accountData.savingBookResponseList);
+    
+    // Update transactions list
+    updateTransactionsList(accountData.transactionResponseList);
+};
+
+// Update transactions table
+const updateTransactionsList = (transactions) => {
+    const tbody = document.querySelector('#transactionsList tbody');
+    if (!transactions || transactions.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center">Không có giao dịch nào</td>
+            </tr>
+        `;
+        return;
+    }
+
+    tbody.innerHTML = transactions.map(transaction => {
+        // Determine amount class based on transaction type
+        const isDeposit = transaction.type === 'Gửi tiền' || transaction.type === 'Nhận lãi';
+        const amountClass = isDeposit ? 'positive' : 'negative';
+        const amountPrefix = isDeposit ? '+' : '-';
+
+        // Get transaction type class
+        const getTypeClass = (type) => {
+            switch (type) {
+                case 'Gửi tiền':
+                    return 'deposit';
+                case 'Rút tiền':
+                    return 'withdraw';
+                case 'Nhận lãi':
+                    return 'interest';
+                default:
+                    return '';
+            }
+        };
+
+        return `
+            <tr>
+                <td>${formatDate(transaction.transactionDate)}</td>
+                <td><span class="transaction-type ${getTypeClass(transaction.type)}">${transaction.type}</span></td>
+                <td class="amount ${amountClass}">${amountPrefix}${formatCurrency(Math.abs(transaction.amount))}</td>
+                <td class="balance">${formatCurrency(transaction.balanceAfterTransaction)}</td>
+                <td>${transaction.description || ''}</td>
+            </tr>
+        `;
+    }).join('');
 };
 
 // Update savings books table
