@@ -56,33 +56,7 @@ loadSidebar();
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Không kỳ hạn</td>
-                    <td class="money positive">0 đ</td>
-                    <td class="money negative">0 đ</td>
-                    <td class="money">0 đ</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>3 tháng</td>
-                    <td class="money positive">0 đ</td>
-                    <td class="money negative">0 đ</td>
-                    <td class="money">0 đ</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>6 tháng</td>
-                    <td class="money positive">0 đ</td>
-                    <td class="money negative">0 đ</td>
-                    <td class="money">0 đ</td>
-                </tr>
-                <tr class="total-row">
-                    <td colspan="2"><strong>Tổng cộng</strong></td>
-                    <td class="money positive">0 đ</td>
-                    <td class="money negative">0 đ</td>
-                    <td class="money">0 đ</td>
-                </tr>
+                <!-- Report data will be listed here -->
             </tbody>
         </table>
 

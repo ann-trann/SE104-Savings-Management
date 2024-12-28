@@ -47,7 +47,15 @@ function getLoginEndpoint(role) {
     }
 }
 
-// Login function with API integration
+// Function to set cookies with user data
+function setUserCookies(userData) {
+    document.cookie = `isLoggedIn=true; path=/`;
+    document.cookie = `userRole=${userData.role}; path=/`;
+    document.cookie = `userName=${encodeURIComponent(userData.name)}; path=/`;
+    document.cookie = `minIncome=${userData.minIncome}; path=/`;
+}
+
+// Updated login function
 async function login(event) {
     event.preventDefault();
     
@@ -78,28 +86,42 @@ async function login(event) {
                 password
             })
         });
-
         const data = await response.json();
 
-        if (data.result === true) {
-            // Login successful
-            document.cookie = `isLoggedIn=true; path=/`;
-            document.cookie = `userRole=${selectedRole}; path=/`;
-            
-            // Redirect based on role
-            switch (selectedRole) {
-                case 'customer':
-                    window.location.href = 'user_account';
+        if (data.code === 0 && data.result) {
+            // Convert role to appropriate value for cookie
+            let role;
+            switch (data.result.role.toLowerCase()) {
+                case 'admin':
+                    role = 'manager';
                     break;
-                case 'employee':
+                case 'staff':
+                    role = 'employee';
+                    break;
+                default:
+                    role = 'customer';
+            }
+        
+            // Store user data in cookies
+            setUserCookies({ ...data.result, role });
+        
+            // Redirect based on role
+            switch (role) {
                 case 'manager':
                     window.location.href = 'dashboard';
+                    break;
+                case 'employee':
+                    window.location.href = 'dashboard';
+                    break;
+                default:
+                    window.location.href = 'user_account';
                     break;
             }
         } else {
             // Show error message
             alert(data.message || 'Đăng nhập không thành công. Vui lòng thử lại!');
         }
+        
     } catch (error) {
         console.error('Login error:', error);
         alert('Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại!');

@@ -28,15 +28,15 @@ loadSidebar2();
                 <div class="left-col">
                     <div class="form-group">
                         <label for="maTietKiem">Mã tiết kiệm</label>
-                        <input type="text" id="maTietKiem" name="maTietKiem" class="form-control" 
-                               disabled value="" required>
+                        <input type="text" id="maTietKiem" name="maTietKiem" class="form-control"
+                            disabled value="" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="soTaiKhoan">Tìm kiếm tài khoản</label>
                         <div class="search-account">
-                            <input type="text" id="searchAccount" class="form-control" 
-                                   placeholder="Nhập số tài khoản cần tìm...">
+                            <input type="text" id="searchAccount" class="form-control"
+                                placeholder="Nhập số tài khoản cần tìm...">
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -50,16 +50,15 @@ loadSidebar2();
 
                     <div class="form-group">
                         <label for="soTienGoi">Số tiền gởi</label>
-                        <input type="number" id="soTienGoi" name="soTienGoi" class="form-control" 
-                               required min="1000000">
+                        <input type="number" id="soTienGoi" name="soTienGoi" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="right-col">
                     <div class="form-group">
                         <label for="ngayGoi">Ngày gởi</label>
-                        <input type="text" id="ngayGoi" name="ngayGoi" class="form-control" 
-                               disabled value="<?php echo date('d/m/Y'); ?>" required>
+                        <input type="text" id="ngayGoi" name="ngayGoi" class="form-control"
+                            disabled value="<?php echo date('d/m/Y'); ?>" required>
                     </div>
 
                     <div class="form-group">

@@ -99,6 +99,7 @@ const setupSearch = () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Account management loaded');
     loadAccounts();
     setupSearch();
 });

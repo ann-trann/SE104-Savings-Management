@@ -22,7 +22,7 @@ loadSidebar();
                 <div class="form-group">
                     <label for="minDeposit">Số tiền gửi tối thiểu:</label>
                     <div class="input-group">
-                        <input type="number" id="minDeposit" class="form-control" value="1000000">
+                        <input type="number" id="minDeposit" class="form-control" value="0">
                         <span class="input-group-text">VNĐ</span>
                     </div>
                 </div>
@@ -31,46 +31,7 @@ loadSidebar();
             <div class="rules-section">
                 <h3>Quản lý loại tiết kiệm</h3>
                 <div class="savings-types">
-                    <div class="savings-type">
-                        <div class="saving-types__form-group">
-                            <label>Kỳ hạn:</label>
-                            <input type="text" class="form-control" value="Không kỳ hạn" readonly>
-                        </div>
-                        <div class="saving-types__form-group">
-                            <label>Lãi suất (%):</label>
-                            <input type="number" class="form-control" value="0.5" step="0.1" min="0">
-                        </div>
-                    </div>
-
-                    <div class="savings-type">
-                        <div class="saving-types__form-group">
-                            <label>Kỳ hạn:</label>
-                            <input type="text" class="form-control" value="3 tháng" readonly>
-                        </div>
-                        <div class="saving-types__form-group">
-                            <label>Số ngày:</label>
-                            <input type="number" class="form-control" value="90" min="1">
-                        </div>
-                        <div class="saving-types__form-group">
-                            <label>Lãi suất (%):</label>
-                            <input type="number" class="form-control" value="5.5" step="0.1">
-                        </div>
-                    </div>
-
-                    <div class="savings-type">
-                        <div class="saving-types__form-group">
-                            <label>Kỳ hạn:</label>
-                            <input type="text" class="form-control" value="6 tháng" readonly>
-                        </div>
-                        <div class="saving-types__form-group">
-                            <label>Số ngày:</label>
-                            <input type="number" class="form-control" value="180" min="1">
-                        </div>
-                        <div class="saving-types__form-group">
-                            <label>Lãi suất (%):</label>
-                            <input type="number" class="form-control" value="6.0" step="0.1">
-                        </div>
-                    </div>
+                    <!-- Savings types will be listed here -->
                 </div>
 
                 <button type="button" class="btn btn-secondary" id="addSavingsType">
