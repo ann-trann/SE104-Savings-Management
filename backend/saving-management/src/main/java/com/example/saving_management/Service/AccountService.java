@@ -137,7 +137,7 @@ public class AccountService {
                     .transactionDate(phieuRutTien.getNgayRut())
                     .amount(phieuRutTien.getSoTienRut())
                     .balanceAfterTransaction(phieuRutTien.getSoTienConLai())
-                    .description(type + " từ tài khoản " + phieuRutTien.getMaTK())
+                    .description(type + " từ phiếu " + phieuRutTien.getMaTK())
                     .savingId(phieuRutTien.getMaTK())
                     .build();
 
