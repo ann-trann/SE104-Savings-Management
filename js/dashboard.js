@@ -1,4 +1,3 @@
-// Add this script after your HTML content
 document.addEventListener('DOMContentLoaded', function() {
     // Format number as Vietnamese currency
     function formatCurrency(number) {
@@ -14,6 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('vi-VN');
+    }
+
+    // Get saving status based on balance
+    function getSavingStatus(balance) {
+        if (balance === 0) {
+            return {
+                className: 'completed',
+                text: 'Đã tất toán'
+            };
+        }
+        return {
+            className: 'active',
+            text: 'Đang hoạt động'
+        };
     }
 
     // Update dashboard stats
@@ -49,13 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 tbody.innerHTML = ''; // Clear existing rows
                 
                 data.result.forEach(book => {
+                    const status = getSavingStatus(book.remainingAmount);
                     const row = `
                         <tr>
                             <td>${book.id}</td>
                             <td>${book.customerName}</td>
-                            <td><span class="money">${formatCurrency(book.deposit)}</span></td>
+                            <td><span class="money">${formatCurrency(book.remainingAmount)}</span></td>
                             <td>${formatDate(book.sentDate)}</td>
-                            <td><span class="status active">Đang hoạt động</span></td>
+                            <td><span class="status ${status.className}">${status.text}</span></td>
                         </tr>
                     `;
                     tbody.insertAdjacentHTML('beforeend', row);

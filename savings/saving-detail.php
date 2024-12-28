@@ -86,15 +86,15 @@ loadSidebar2();
                 <div class="settlement-info">
                     <div class="info-row">
                         <label>Số tiền gốc:</label>
-                        <span class="money">100000000 đ</span>
+                        <span class="money"></span>
                     </div>
                     <div class="info-row">
                         <label>Tiền lãi:</label>
-                        <span class="money interest">3400000 đ</span>
+                        <span class="money interest"></span>
                     </div>
                     <div class="info-row total">
                         <label>Tổng tiền:</label>
-                        <span class="money">103400000 đ</span>
+                        <span class="money"></span>
                     </div>
                 </div>
                 <form id="settlementForm" onsubmit="return handleSettlement(event)">

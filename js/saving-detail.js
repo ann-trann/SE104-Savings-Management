@@ -207,7 +207,7 @@ const updateSavingDetails = (data) => {
             <td>${formatDate(transaction.transactionDate)}</td>
             <td>${transaction.type}</td>
             <td class="money">${transaction.type === 'Gửi tiền' ? '+' : '-'}${formatCurrency(transaction.amount)}</td>
-            <td class="money">${formatCurrency(data.currentAmount)}</td>
+            <td class="money">${formatCurrency(transaction.balanceAfterTransaction)}</td>
         </tr>
     `).join('');
 
@@ -218,8 +218,19 @@ const updateSavingDetails = (data) => {
 
     // Update settlement modal amounts
     const settlementModal = document.getElementById('settlementModal');
+    
+    // Original deposit amount
     const originalAmount = settlementModal.querySelector('.settlement-info .info-row:nth-child(1) .money');
-    originalAmount.textContent = formatCurrency(data.currentAmount);
+    originalAmount.textContent = formatCurrency(data.amount);
+    
+    // Calculate interest (current amount - original amount)
+    const interest = data.currentAmount - data.amount;
+    const interestElement = settlementModal.querySelector('.settlement-info .info-row:nth-child(2) .money');
+    interestElement.textContent = formatCurrency(interest);
+    
+    // Total amount (current amount)
+    const totalAmount = settlementModal.querySelector('.settlement-info .info-row.total .money');
+    totalAmount.textContent = formatCurrency(data.currentAmount);
 
     // Disable buttons if saving is already settled
     if (data.status) {
@@ -227,6 +238,7 @@ const updateSavingDetails = (data) => {
         document.querySelector('.btn-danger').disabled = true;
     }
 };
+
 
 // Fetch and load saving details
 const loadSavingDetails = async () => {
