@@ -112,34 +112,6 @@ loadSidebar2();
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <td>#PTK001</td>
-                            <td class="amount"><span class="money">50000000 đ</span></td>
-                            <td>6 tháng</td>
-                            <td>6.8%</td>
-                            <td>15/12/2024</td>
-                            <td>15/06/2025</td>
-                            <td><span class="status-badge active">Đang hoạt động</span></td>
-                            <td>
-                                <button class="btn-icon" title="Chi tiết" onclick="window.location.href='saving-detail?id=PTK001'">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#PTK002</td>
-                            <td class="amount"><span class="money">30000000 đ</span></td>
-                            <td>3 tháng</td>
-                            <td>6.0%</td>
-                            <td>10/11/2024</td>
-                            <td>10/02/2025</td>
-                            <td><span class="status-badge completed">Đã tất toán</span></td>
-                            <td>
-                                <button class="btn-icon" title="Chi tiết" onclick="window.location.href='saving-detail?id=PTK002'">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -164,7 +136,7 @@ loadSidebar2();
                         <option value="">Tất cả</option>
                         <option value="deposit">Gửi tiền</option>
                         <option value="withdraw">Rút tiền</option>
-                        <option value="interest">Nhận lãi</option>
+                        <option value="interest">Tất toán</option>
                     </select>
                 </div>
                 <button class="btn btn-primary" onclick="filterTransactions()">
@@ -186,27 +158,7 @@ loadSidebar2();
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <td>20/12/2024</td>
-                            <td><span class="transaction-type deposit">Gửi tiền</span></td>
-                            <td class="amount positive">+20,000,000 đ</td>
-                            <td class="balance">50,000,000 đ</td>
-                            <td>Nộp tiền mặt</td>
-                        </tr>
-                        <tr>
-                            <td>19/12/2024</td>
-                            <td><span class="transaction-type interest">Nhận lãi</span></td>
-                            <td class="amount positive">+500,000 đ</td>
-                            <td class="balance">30,000,000 đ</td>
-                            <td>Lãi từ STK #PTK001</td>
-                        </tr>
-                        <tr>
-                            <td>18/12/2024</td>
-                            <td><span class="transaction-type withdraw">Rút tiền</span></td>
-                            <td class="amount negative">-5,000,000 đ</td>
-                            <td class="balance">29,500,000 đ</td>
-                            <td>Rút tiền mặt</td>
-                        </tr> -->
+                        
                     </tbody>
                 </table>
             </div>

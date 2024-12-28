@@ -115,7 +115,7 @@ public class AccountService {
                     .amount(phieuGoiTien.getSoTienGoi())
                     .transactionDate(phieuGoiTien.getNgayGoi())
                     .savingId(phieuGoiTien.getMaTK())
-                    .description("Tạo tài khoản " + phieuGoiTien.getMaTK())
+                    .description("Tạo phiếu tiết kiệm " + phieuGoiTien.getMaTK())
                     .build());
 
             List<PhieuRutTien> phieuRutTiens = phieuRutTienRepository.findAllByMaTK(phieuGoiTien.getMaTK());

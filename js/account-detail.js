@@ -27,17 +27,134 @@ window.onclick = function(event) {
 
 //=======================================================
 
+// Global variables to store the original data
+let originalSavingsBooks = [];
+let originalTransactions = [];
+
+
+
+// Function to filter savings books
+function filterSavings() {
+    const status = document.getElementById('savingStatus').value;
+    
+    let filteredBooks = [...originalSavingsBooks];
+    
+    if (status) {
+        filteredBooks = filteredBooks.filter(book => {
+            if (status === 'active') {
+                return book.remainingAmount > 0;
+            } else if (status === 'completed') {
+                return book.remainingAmount <= 0;
+            }
+            return true;
+        });
+    }
+    
+    // Reuse existing table update logic
+    const tbody = document.querySelector('#savingsList tbody');
+    if (!filteredBooks || filteredBooks.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="8" class="text-center">Không có phiếu tiết kiệm nào</td>
+            </tr>
+        `;
+        return;
+    }
+
+    tbody.innerHTML = filteredBooks.map(book => `
+        <tr>
+            <td>${book.id}</td>
+            <td class="amount"><span class="money">${formatCurrency(book.initialBalance)}</span></td>
+            <td>${book.term} tháng</td>
+            <td>${book.interestRate}%</td>
+            <td>${formatDate(book.openDate)}</td>
+            <td>${formatDate(book.dueDate)}</td>
+            <td>
+                <span class="status-badge ${book.remainingAmount > 0 ? 'active' : 'completed'}">
+                    ${book.remainingAmount > 0 ? 'Đang hoạt động' : 'Đã tất toán'}
+                </span>
+            </td>
+            <td>
+                <button class="btn-icon" title="Chi tiết" onclick="window.location.href='saving-detail?id=${book.id}'">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+
+// Function to filter transactions
 function filterTransactions() {
     const fromDate = document.getElementById('fromDate').value;
     const toDate = document.getElementById('toDate').value;
     const transactionType = document.getElementById('transactionType').value;
+    
+    let filteredTransactions = [...originalTransactions];
+    
+    // Filter by date range
+    if (fromDate) {
+        filteredTransactions = filteredTransactions.filter(transaction => 
+            new Date(transaction.transactionDate) >= new Date(fromDate)
+        );
+    }
+    
+    if (toDate) {
+        filteredTransactions = filteredTransactions.filter(transaction => 
+            new Date(transaction.transactionDate) <= new Date(toDate)
+        );
+    }
+    
+    // Filter by transaction type
+    if (transactionType) {
+        filteredTransactions = filteredTransactions.filter(transaction => 
+            transaction.type === {
+                'deposit': 'Gửi tiền',
+                'withdraw': 'Rút tiền',
+                'interest': 'Tất toán'
+            }[transactionType]
+        );
+    }
+    
+    // Reuse existing table update logic
+    const tbody = document.querySelector('#transactionsList tbody');
+    if (!filteredTransactions || filteredTransactions.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="text-center">Không có giao dịch nào</td>
+            </tr>
+        `;
+        return;
+    }
 
-    // TODO: Implement filtering logic
-    console.log('Filtering transactions:', {
-        fromDate,
-        toDate,
-        transactionType
-    });
+    tbody.innerHTML = filteredTransactions.map(transaction => {
+        const isDeposit = transaction.type === 'Gửi tiền' || transaction.type === 'Nhận lãi';
+        const amountClass = isDeposit ? 'positive' : 'negative';
+        const amountPrefix = isDeposit ? '+' : '-';
+
+        const getTypeClass = (type) => {
+            switch (type) {
+                case 'Gửi tiền':
+                    return 'deposit';
+                case 'Rút tiền':
+                    return 'withdraw';
+                case 'Tất toán':
+                    return 'interest';
+                default:
+                    return '';
+            }
+        };
+
+        return `
+            <tr>
+                <td>${formatDate(transaction.transactionDate)}</td>
+                <td><span class="transaction-type ${getTypeClass(transaction.type)}">${transaction.type}</span></td>
+                <td class="amount ${amountClass}">${amountPrefix}${formatCurrency(Math.abs(transaction.amount))}</td>
+                <td class="balance">${formatCurrency(transaction.balanceAfterTransaction)}</td>
+                <td>${transaction.description || ''}</td>
+            </tr>
+        `;
+    }).join('');
 }
 
 
@@ -114,6 +231,10 @@ const updateAccountDetails = (accountData) => {
 
 // Update transactions table
 const updateTransactionsList = (transactions) => {
+    originalTransactions = transactions || []; // Store original data
+    filterTransactions(); // Apply any existing filters
+
+
     const tbody = document.querySelector('#transactionsList tbody');
     if (!transactions || transactions.length === 0) {
         tbody.innerHTML = `
@@ -126,7 +247,7 @@ const updateTransactionsList = (transactions) => {
 
     tbody.innerHTML = transactions.map(transaction => {
         // Determine amount class based on transaction type
-        const isDeposit = transaction.type === 'Gửi tiền' || transaction.type === 'Nhận lãi';
+        const isDeposit = transaction.type === 'Gửi tiền';
         const amountClass = isDeposit ? 'positive' : 'negative';
         const amountPrefix = isDeposit ? '+' : '-';
 
@@ -137,7 +258,7 @@ const updateTransactionsList = (transactions) => {
                     return 'deposit';
                 case 'Rút tiền':
                     return 'withdraw';
-                case 'Nhận lãi':
+                case 'Tất toán':
                     return 'interest';
                 default:
                     return '';
@@ -160,6 +281,9 @@ const updateTransactionsList = (transactions) => {
 
 // Update savings books table
 const updateSavingsBooksList = (savingsBooks) => {
+    originalSavingsBooks = savingsBooks || []; // Store original data
+    filterSavings(); // Apply any existing filters
+
     const tbody = document.querySelector('#savingsList tbody');
     if (!savingsBooks || savingsBooks.length === 0) {
         tbody.innerHTML = `
