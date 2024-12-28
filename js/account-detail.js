@@ -66,7 +66,7 @@ const loadAccountDetails = async (accountId) => {
         const data = await response.json();
         
         if (data.code === 0 && data.result) {
-            // console.log('Account details:', data.result);
+            console.log('Account details:', data.result);
             updateAccountDetails(data.result);
         } else {
             throw new Error(data.message || 'Failed to load account details');
