@@ -11,41 +11,6 @@ let isSavingCreated = false;
 // Constants
 const API_BASE_URL = 'http://localhost:81/saving';
 
-// Initialize form on load
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const response = await fetch(`${API_BASE_URL}/savings/fill-in-form`);
-        const data = await response.json();
-        
-        if (data.code === 0 && data.result) {
-            // Set saving number
-            currentSavingNumber = data.result.bookId;
-            document.getElementById('maTietKiem').value = currentSavingNumber;
-            
-            // Populate saving types
-            savingTypes = data.result.savingTypeResponses;
-            const selectElement = document.getElementById('loaiTietKiem');
-            
-            // Clear existing options except the first one
-            while (selectElement.options.length > 1) {
-                selectElement.remove(1);
-            }
-            
-            // Add new options
-            savingTypes.forEach(type => {
-                const option = document.createElement('option');
-                option.value = type.savingId;
-                option.textContent = type.savingName;
-                selectElement.appendChild(option);
-            });
-        }
-    } catch (error) {
-        console.error('Error initializing form:', error);
-    }
-    
-    document.querySelector('.search-account button').addEventListener('click', searchAccount);
-});
-
 
 // Modify the DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
@@ -92,6 +57,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     document.querySelector('.search-account button').addEventListener('click', searchAccount);
 });
+
+
+
 
 
 
@@ -193,6 +161,7 @@ async function dropSavingUntilSuccess() {
             });
             
             if (response.status === 200) return true;
+            console.log("response", response);
             await new Promise(resolve => setTimeout(resolve, 100));
         } catch (error) {
             console.error('Error dropping saving:', error);
@@ -218,6 +187,8 @@ document.querySelectorAll('button[onclick*="window.location.href"]').forEach(but
 window.addEventListener('popstate', async function(e) {
     e.preventDefault();
     const success = await dropSavingUntilSuccess();
+    consolo.log("success", success);
+
     if (success) history.back();
 });
 

@@ -224,7 +224,7 @@ INSERT INTO `user` (`username`, `password`, `role`, `name`) VALUES
 ('anhhuynh', '123', 'Admin', 'Huỳnh Thị Ngọc Ánh'),
 ('antrann', '123', 'Staff', 'Trần Thúy An'),
 ('bao01', '123', 'Admin', 'Nguyễn Thái Bảo'),
-('connghuynh', '123', 'Admin', 'Huỳnh Lê Quốc Công')
+('connghuynh', '123', 'Admin', 'Huỳnh Lê Quốc Công'),
 ('tuananh', '123', 'Staff', 'Phan Nguyễn Tuấn Anh');
 
 --
