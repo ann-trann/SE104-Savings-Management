@@ -112,7 +112,7 @@ loadSidebar2();
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>#PTK001</td>
                             <td class="amount"><span class="money">50000000 đ</span></td>
                             <td>6 tháng</td>
@@ -139,7 +139,7 @@ loadSidebar2();
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

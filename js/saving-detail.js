@@ -172,10 +172,13 @@ const updateSavingDetails = (data) => {
     document.querySelector('.detail-row:nth-child(2) .detail-group:nth-child(2) span').textContent = formatCurrency(data.amount);
     
     document.querySelector('.detail-row:nth-child(3) .detail-group:nth-child(1) span').textContent = getTermDisplay(data.term);
-    document.querySelector('.detail-row:nth-child(3) .detail-group:nth-child(2) span').textContent = `${(data.interestRate * 100).toFixed(1)}%`;
+    document.querySelector('.detail-row:nth-child(3) .detail-group:nth-child(2) span').textContent = formatCurrency(data.currentAmount);
     
     document.querySelector('.detail-row:nth-child(4) .detail-group:nth-child(1) span').textContent = formatDate(data.sendDate);
-    document.querySelector('.detail-row:nth-child(4) .detail-group:nth-child(2) span').textContent = formatDate(data.settlementDate);
+    document.querySelector('.detail-row:nth-child(4) .detail-group:nth-child(2) span').textContent = `${(data.interestRate * 100).toFixed(1)}%`;
+
+    
+    document.querySelector('.detail-row:nth-child(5) .detail-group:nth-child(2) span').textContent = formatDate(data.settlementDate);
     
     // Update status
     const statusElement = document.querySelector('.detail-row:nth-child(5) .detail-group span');
@@ -258,6 +261,7 @@ const loadSavingDetails = async () => {
 
         const data = await response.json();
         
+            console.log('Saving details:', data.result);
         if (data.code === 0 && data.result) {
             updateSavingDetails(data.result);
         } else {

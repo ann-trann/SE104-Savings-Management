@@ -144,6 +144,8 @@ const updateTransactionsList = (transactions) => {
             }
         };
 
+        console.log('Transaction:', transaction);
+
         return `
             <tr>
                 <td>${formatDate(transaction.transactionDate)}</td>

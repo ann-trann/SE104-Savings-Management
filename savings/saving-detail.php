@@ -127,7 +127,7 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Số tiền tiết kiệm:</label>
+                        <label>Tiền gửi tiết kiệm:</label>
                         <span class="money"></span>
                     </div>
                 </div>
@@ -138,8 +138,8 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Lãi suất:</label>
-                        <span class="interest-rate"></span>
+                        <label>Số tiền hiện tại:</label>
+                        <span class="money"></span>
                     </div>
                 </div>
 
@@ -149,8 +149,8 @@ loadSidebar2();
                         <span></span>
                     </div>
                     <div class="detail-group">
-                        <label>Ngày tất toán:</label>
-                        <span></span>
+                        <label>Lãi suất:</label>
+                        <span class="interest-rate"></span>
                     </div>
                 </div>
 
@@ -158,6 +158,10 @@ loadSidebar2();
                     <div class="detail-group">
                         <label>Trạng thái:</label>
                         <span class="status active">Đang hoạt động</span>
+                    </div>
+                    <div class="detail-group">
+                        <label>Ngày tất toán:</label>
+                        <span></span>
                     </div>
                 </div>
             </div>
