@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <tr>
                             <td>${book.id}</td>
                             <td>${book.customerName}</td>
-                            <td><span class="money">${formatCurrency(book.remainingAmount)}</span></td>
+                            <td><span class="money">${formatCurrency(book.deposit)}</span></td>
                             <td>${formatDate(book.sentDate)}</td>
                             <td><span class="status ${status.className}">${status.text}</span></td>
                         </tr>
