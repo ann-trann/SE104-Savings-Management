@@ -16,6 +16,7 @@
             <div class="login-form">
                 <input type="text" id="username" placeholder="Số điện thoại/Tên đăng nhập">
                 <input type="password" id="password" placeholder="Mật khẩu">
+                <div class="error-message" id="loginError"></div>
             </div>
             <button class="login-btn" onclick="login(event)">Đăng nhập</button>
         </div>

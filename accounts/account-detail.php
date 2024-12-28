@@ -202,7 +202,7 @@ loadSidebar2();
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>20/12/2024</td>
                             <td><span class="transaction-type deposit">Gửi tiền</span></td>
                             <td class="amount positive">+20,000,000 đ</td>
@@ -222,7 +222,7 @@ loadSidebar2();
                             <td class="amount negative">-5,000,000 đ</td>
                             <td class="balance">29,500,000 đ</td>
                             <td>Rút tiền mặt</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
