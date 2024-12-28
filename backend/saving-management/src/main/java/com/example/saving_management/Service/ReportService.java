@@ -36,8 +36,6 @@ public class ReportService {
         for (LoaiTietKiem loaiTietKiem : list) {
             Object[] result = baoCaoDoanhSoNgayRepository.getMonthlyReport(month, year, loaiTietKiem.getMaLoaiTietKiem());
 
-            log.error(result.length + " LENGTH " + result[0]);
-
             double income = 0, withdrawal = 0, difference = 0;
             if (result != null && result.length > 0) {
                 if (result[0] instanceof Object[]) {

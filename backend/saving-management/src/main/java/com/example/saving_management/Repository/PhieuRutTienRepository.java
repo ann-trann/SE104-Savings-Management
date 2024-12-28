@@ -16,7 +16,7 @@ public interface PhieuRutTienRepository extends JpaRepository<PhieuRutTien, Long
 
     @Query(value = """
             SELECT COUNT(*) FROM phieurutien
-            WHERE MONTH(NGAYRUT) = :month AND YEAR(NGAYRUT) = :year
+            WHERE MONTH(NGAYRUT) = :month AND YEAR(NGAYRUT) = :year AND SOTIENCONLAI = 0
             """, nativeQuery = true)
     int getNumberOfNonActiveBook(@Param("month") int month, @Param("year") int year);
 }
