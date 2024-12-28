@@ -8,7 +8,7 @@ function checkAuth() {
             $_SESSION['isLoggedIn'] = true;
             $_SESSION['userRole'] = $_COOKIE['userRole'];
         } else {
-            header('Location: login');
+            header('Location: /SE104-Savings-Management/');
             exit();
         }
     }
