@@ -15,7 +15,7 @@
             <li class="<?php echo in_array($page, ['user-saving', 'saving-detail']) ? 'sidebar__active' : ''; ?>">
                 <a href="/SE104-Savings-Management/user_saving" class="sidebar__full-link">
                     <i class="fas fa-users"></i>
-                    <span>Sổ tiết kiệm</span>
+                    <span>Phiếu tiết kiệm</span>
                 </a>
             </li>
         </ul>
