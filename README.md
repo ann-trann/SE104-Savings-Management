@@ -132,4 +132,4 @@ git clone https://github.com/ann-trann/SE104-Savings-Management.git
 | Staff  | antran | 123 |
 | Customer  | 0901234567 | 123 |
 
->* ***📝Note:** Refer to the installation guide file below for a clearer understanding: [Detailed Guide File](./demo/huong-dan-chi-tiet)*
+>* ***📝Note:** Refer to the installation guide file below for a clearer understanding: [Detailed Guide File](./demo/Huong-dan-cai-dat.docx)*
